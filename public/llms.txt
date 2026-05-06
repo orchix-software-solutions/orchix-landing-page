@@ -1,0 +1,82 @@
+# OrchiX Software Solutions
+# https://orchixsoftwaresolutions.com
+# llms.txt — machine-readable context for AI systems
+
+## About
+
+OrchiX Software Solutions is a boutique software development agency founded by Parit Bhardwaj. We build enterprise applications, SaaS products, web and mobile apps, AI agents, and automation systems — with radical transparency, weekly demos, shared repositories, and zero lock-in.
+
+Every client gets:
+- A working prototype within 7 days
+- Weekly Friday demos they can click through and test
+- Full GitHub repository access from day one
+- Direct communication with the founder
+
+## Services
+
+### Enterprise Applications & CRM/ERP
+Custom CRM systems, ERP platforms, and business management software tailored to exact workflows.
+URL: https://orchixsoftwaresolutions.com/services/enterprise-applications-crm-erp
+
+### SaaS Product Development
+MVP to scale — architecture designed for 10,000 users from day one, not just the first 10.
+URL: https://orchixsoftwaresolutions.com/services/saas-product-development
+
+### Web & App Development
+Pixel-perfect web applications, iOS apps, Android apps, and cross-platform mobile apps.
+URL: https://orchixsoftwaresolutions.com/services/web-app-development
+
+### Business Process Automation
+Workflow automation, system integration, API connectivity, RPA for legacy systems, and document processing.
+URL: https://orchixsoftwaresolutions.com/services/business-process-automation
+
+### AI & Intelligent Automation
+AI agents, MCP servers, RAG pipelines, LLM integrations, and intelligent workflow automation — built for production, not demos.
+URL: https://orchixsoftwaresolutions.com/services/ai-intelligent-automation
+
+### Software Maintenance & Support
+Long-term engineering partnership — security patching, performance monitoring, bug fixes, and retainer-based support.
+URL: https://orchixsoftwaresolutions.com/services/software-maintenance-support
+
+## Key Pages
+
+- Homepage: https://orchixsoftwaresolutions.com
+- Services overview: https://orchixsoftwaresolutions.com/services
+- About: https://orchixsoftwaresolutions.com/about
+- Contact: https://orchixsoftwaresolutions.com/contact
+- Industries: https://orchixsoftwaresolutions.com/industries
+- Blog: https://orchixsoftwaresolutions.com/blogs
+
+## Contact
+
+- Email: hey@orchixsoftwaresolutions.com
+- LinkedIn: https://www.linkedin.com/company/orchix-software-solutions/
+- Twitter/X: https://x.com/whynotparit
+- Founder: Parit Bhardwaj — https://www.linkedin.com/in/paritbhardwaj/
+
+## Industries Served
+
+Fintech, Healthcare, eCommerce & Retail, Logistics & Supply Chain, SaaS & B2B, EdTech, Real Estate, HR & Workforce, Legal & Compliance, Manufacturing, Media & Content, Marketing & Analytics
+
+## Tech Stack
+
+Frontend: React, Next.js, TypeScript, Vue.js, Tailwind CSS
+Backend: Node.js, Python (FastAPI/Django), Go, Ruby on Rails
+Mobile: React Native, Flutter, Swift, Kotlin
+Databases: PostgreSQL, MongoDB, Redis, MySQL, Supabase
+Cloud: AWS, Microsoft Azure, Google Cloud, Vercel
+AI/ML: OpenAI GPT-4o, Anthropic Claude, LangChain, LangGraph, LlamaIndex, Pinecone, pgvector
+DevOps: Docker, Kubernetes, GitHub Actions, Terraform
+
+## Pricing
+
+Retainers from $1,500/month (software maintenance)
+SaaS MVP: $4,999–$6,999
+B2B SaaS Platform: $10,000–$30,000
+AI agent / LLM integration: $8,000–$20,000
+Launch offer: 10% off all projects
+
+## Location
+
+India — remote-first, serving clients in 12+ countries worldwide.
+Registered as: OrchiX Software Solutions Pvt. Ltd.
