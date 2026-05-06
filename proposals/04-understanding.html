@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>05 Understanding (contd.) — Real Estate Sales & Operations Platform | OrchiX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --bg-page: #f8f7f4;
+    --blue: #0ea5e9;
+    --blue-mid: #3b82f6;
+    --purple: #7c3aed;
+    --purple-deep: #6b21a8;
+    --purple-light: #a78bfa;
+    --white: #f1f0f5;
+    --text-dark: #1a1a2e;
+    --text-body: #2d2d44;
+    --text-muted: #6b7280;
+  }
+
+  ::selection {
+    background: rgba(124, 58, 237, 0.2);
+    color: #1a1a2e;
+  }
+
+  @page { margin: 0; size: A4; }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: var(--bg-page);
+    color: var(--text-dark);
+    font-family: 'Space Grotesk', sans-serif;
+    height: 100%;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ─── NOISE / GRAIN OVERLAY ─── */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+  }
+
+  /* ─── TOP GRADIENT BAR ─── */
+  .top-bar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--blue), var(--purple), var(--blue));
+    background-size: 200% 100%;
+    animation: shimmer 4s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* ─── PAGE ─── */
+  .page {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page-inner {
+    position: relative;
+    z-index: 1;
+    padding: 2.5rem 3.5rem 1.5rem;
+    flex: 1;
+  }
+
+  /* ─── PILLAR HEADING ─── */
+  .pillar-heading {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--purple-deep);
+    margin-top: 1.2rem;
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+  }
+
+  .pillar-heading:first-child {
+    margin-top: 0;
+  }
+
+  /* ─── BODY TEXT ─── */
+  .body-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    line-height: 1.75;
+    color: var(--text-body);
+    margin-bottom: 1rem;
+    text-align: justify;
+  }
+
+  /* ─── BULLET LIST ─── */
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.8rem 0;
+  }
+
+  .feature-list li {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    line-height: 1.7;
+    color: var(--text-body);
+    padding-left: 1.4rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    text-align: justify;
+  }
+
+  .feature-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--purple);
+  }
+
+  .feature-list li strong {
+    color: var(--text-dark);
+    font-weight: 700;
+  }
+
+  /* ─── PAGE FOOTER ─── */
+  .page-footer {
+    position: relative;
+    z-index: 1;
+    padding: 1rem 3.5rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+  }
+
+  .page-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 3.5rem;
+    right: 3.5rem;
+    height: 1px;
+    background: linear-gradient(90deg, var(--purple), var(--blue));
+    opacity: 0.3;
+  }
+
+  .page-footer-company {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .page-footer-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--purple);
+  }
+
+  /* ─── PDF / PRINT SAFE ─── */
+  @media print {
+    @page { margin: 0; }
+    body { background: var(--bg-page) !important; margin: 0; padding: 0; }
+    body::after { display: none !important; }
+    .top-bar { display: none !important; }
+    *, *::before, *::after {
+      animation-delay: 0s !important;
+      animation-duration: 0s !important;
+    }
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 640px) {
+    .page-inner { padding: 2rem 1.5rem 1rem; }
+    .page-footer { padding: 1rem 1.5rem 1.5rem; }
+    .page-footer::before { left: 1.5rem; right: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top gradient bar -->
+<div class="top-bar"></div>
+
+<!-- Page -->
+<div class="page">
+  <div class="page-inner">
+
+    <!-- Pillar 3 -->
+    <h2 class="pillar-heading">Pillar 3 — The Automation Heavy-Lift</h2>
+
+    <p class="body-text">
+      This is where the system stops being a database and starts being a force multiplier for your sales team -
+    </p>
+
+    <ul class="feature-list">
+      <li><strong>WhatsApp drip campaigns</strong> — 10-day automated nurture sequences for cold leads that keep warming them up while agents focus on hot ones.</li>
+      <li><strong>Event-triggered messages</strong> — auto-sending the site location pin 60 minutes before a visit, and auto-requesting feedback 30 minutes after the visit ends.</li>
+      <li><strong>Virtual DID numbers</strong> for every project, so marketing attribution is accurate and agents never expose personal numbers.</li>
+      <li><strong>Click-to-call</strong> directly from the CRM so agents stop manually dialing.</li>
+      <li><strong>Call shadowing and whisper coaching</strong> so managers can silently listen to live calls, or coach agents one-way without the buyer hearing. Supported through compatible telephony providers, subject to plan capability and applicable call-monitoring rules.</li>
+    </ul>
+
+    <!-- Pillar 4 -->
+    <h2 class="pillar-heading">Pillar 4 — Post-Sale, Revenue & Channel Partners</h2>
+
+    <p class="body-text">
+      Booking is only the beginning. The platform must handle everything that comes after -
+    </p>
+
+    <ul class="feature-list">
+      <li><strong>Construction-linked billing</strong> — when the site engineer updates 'Foundation Complete,' the system fires off demand letters to every linked buyer simultaneously.</li>
+      <li><strong>Bank reconciliation</strong> — auto-matching incoming NEFT/RTGS payments with the correct buyer's ledger, so finance stops doing detective work every morning.</li>
+      <li><strong>Channel Partner ecosystem</strong> with a 60-day direct lead shield that locks a registered lead to the broker who brought it, ending the endless 'who owns this lead' fights.</li>
+      <li><strong>Live broker payout tracker</strong> showing brokerage percentage, total sales, and payment status in real time.</li>
+      <li><strong>OCR-assisted document processing</strong> that extracts PAN and Aadhaar details to auto-fill booking forms, with manual review for low-confidence fields, reducing the typing errors that cause registration delays.</li>
+    </ul>
+
+    <!-- Pillar 5 -->
+    <h2 class="pillar-heading">Pillar 5 — Management Information Systems (MIS)</h2>
+
+    <p class="body-text">
+      Finally, the layer that turns raw activity into decisions -
+    </p>
+
+    <ul class="feature-list">
+      <li><strong>Attribution modeling</strong> — first-touch (which ad created awareness), last-touch (which ad drove the booking), and uplift (marketing spend vs. actual banked revenue).</li>
+      <li><strong>Agent productivity audits</strong> — talk-time, lead-to-visit conversion ratios, visit-to-booking conversion ratios, all sliced per agent.</li>
+    </ul>
+
+  </div>
+
+  <!-- Page footer -->
+  <div class="page-footer">
+    <div class="page-footer-company">Orchix Software Solutions</div>
+    <div class="page-footer-number">05</div>
+  </div>
+</div>
+
+</body>
+</html>

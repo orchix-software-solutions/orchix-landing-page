@@ -1,0 +1,124 @@
+{
+  "hero": {
+    "line1_prefix": "Wir liefern. Wir",
+    "line1_italic": "bleiben.",
+    "line2_prefix": "Wir",
+    "line2_outline": "erfüllen.",
+    "subtitle_before": "Wir entwickeln SaaS-Produkte, individuelle Software und Automatisierungssysteme mit",
+    "highlight_1": "radikaler Transparenz",
+    "subtitle_middle": ". Wöchentliche Demos, die Sie anfassen können. Gemeinsame Repositories, die Sie prüfen können.",
+    "highlight_2": "Deadlines, die wir wirklich einhalten.",
+    "cta_primary": "Kostenloses Kennenlerngespräch buchen",
+    "cta_secondary": "Unsere Arbeit ansehen",
+    "stats": [
+      {
+        "number": "5",
+        "label": "Gelieferte Produkte"
+      },
+      {
+        "number": "100%",
+        "label": "Pünktliche Lieferung"
+      },
+      {
+        "number": "4.9",
+        "label": "Ø Kundenbewertung"
+      },
+      {
+        "number": "3+",
+        "label": "Jahre Erfahrung"
+      }
+    ],
+    "stats_footnote": "* Early-stage agency — 4 completed projects, growing intentionally. Numbers reflect real client work, not estimates."
+  },
+  "services": {
+    "eyebrow": "Was wir tun",
+    "heading_prefix": "Leistungen rund um",
+    "heading_italic": "Ihr Wachstum",
+    "items": [
+      {
+        "title": "Individuelle Softwareentwicklung",
+        "desc": "Maßgeschneiderte Software, die auf Ihre einzigartigen Arbeitsabläufe zugeschnitten ist und spezifische Geschäftsprobleme löst, bei denen Standardlösungen an ihre Grenzen stoßen."
+      },
+      {
+        "title": "SaaS-Produktentwicklung",
+        "desc": "End-to-End-Engineering für Gründer und Unternehmen, die SaaS-Plattformen planen, aufbauen und skalieren möchten."
+      },
+      {
+        "title": "Web- & App-Entwicklung",
+        "desc": "Sichere, skalierbare Web- und Mobilanwendungen, entwickelt mit Fokus auf hohe Performance und intuitive Nutzererfahrung."
+      },
+      {
+        "title": "Geschäftsprozessautomatisierung",
+        "desc": "Automatisieren Sie manuelle Prozesse, integrieren Sie disparate Systeme und optimieren Sie Arbeitsabläufe, um Fehler zu reduzieren und tausende von Stunden zu sparen."
+      },
+      {
+        "title": "MCP-Server & KI-Integration",
+        "desc": "Verbinden Sie KI-Agenten mit Ihren realen Tools durch maßgeschneiderte MCP-Server, RAG-Pipelines und intelligente Automatisierungsebenen."
+      },
+      {
+        "title": "Software-Wartung & Support",
+        "desc": "Langfristige Partnerschaft, um sicherzustellen, dass Ihre Software sicher, optimiert und bereit zum Skalieren bleibt, während Ihr Unternehmen wächst."
+      }
+    ]
+  },
+  "announcement": {
+    "text": "Nur noch 3 Plätze für April frei — Starten Sie Ihr Projekt, bevor alle Plätze vergeben sind"
+  },
+  "founder": {
+    "eyebrow": "Vom Gründer",
+    "badge": "5 Produkte geliefert",
+    "quote_before": "Ich habe",
+    "quote_years": "5 Jahre",
+    "quote_after": "damit verbracht zuzusehen, wie großartige Ideen von Agenturen begraben wurden, die zu viel versprechen, zu wenig liefern und nach der Rechnung verschwinden.",
+    "quote_secondary": "OrchiX ist meine Antwort darauf — radikale Transparenz, gemeinsame Repos, wöchentliche Demos, die man wirklich anfassen kann, und Deadlines, die etwas bedeuten.",
+    "name": "Parit Bhardwaj",
+    "role": "Gründer & Leitender Ingenieur — OrchiX Software Solutions",
+    "cta": "Gespräch mit Parit buchen"
+  },
+  "nav": {
+    "services": "Leistungen",
+    "industries": "Branchen",
+    "case_studies": "Fallstudien",
+    "about": "Über uns",
+    "blog": "Blog",
+    "cta": "Kontakt aufnehmen",
+    "industries_items": [
+      {
+        "title": "FinTech",
+        "desc": "Zahlungssysteme, Banking-Apps & Handelsplattformen"
+      },
+      {
+        "title": "Gesundheitswesen",
+        "desc": "Patientenportale, EHR-Systeme & Telemedizin-Apps"
+      },
+      {
+        "title": "E-Commerce",
+        "desc": "Marktplätze, Online-Shops & Lagerverwaltungssysteme"
+      },
+      {
+        "title": "Immobilien",
+        "desc": "Immobilienplattformen, CRMs & Inseratsportale"
+      },
+      {
+        "title": "EdTech",
+        "desc": "LMS-Plattformen, E-Learning-Apps & Studentenportale"
+      },
+      {
+        "title": "Logistik",
+        "desc": "Flottentracking, Lieferkette & Lieferanwendungen"
+      },
+      {
+        "title": "Fertigung",
+        "desc": "IoT-Dashboards, MES & Produktionssysteme"
+      },
+      {
+        "title": "HR & Personalwesen",
+        "desc": "Rekrutierungs-CRMs, Onboarding & Belegschafts-Tools"
+      },
+      {
+        "title": "Recht & Compliance",
+        "desc": "Vertrags-Tools, Dokumenten-KI & Compliance-Systeme"
+      }
+    ]
+  }
+}

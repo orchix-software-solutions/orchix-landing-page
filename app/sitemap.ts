@@ -1,0 +1,63 @@
+import type { MetadataRoute } from "next";
+import { CASE_STUDIES } from "@/lib/case-studies-data";
+import { blogPosts } from "@/lib/blog-data";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const base = "https://orchixsoftwaresolutions.com";
+  const now = new Date().toISOString();
+
+  const staticRoutes: MetadataRoute.Sitemap = [
+    {
+      url: base,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 1.0,
+    },
+    {
+      url: `${base}/about`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${base}/contact`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${base}/industries`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${base}/case-studies`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${base}/blogs`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+  ];
+
+  const caseStudyRoutes: MetadataRoute.Sitemap = CASE_STUDIES.map((cs) => ({
+    url: `${base}/case-studies/${cs.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+    url: `${base}/blogs/${post.slug}`,
+    lastModified: new Date(post.date).toISOString(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticRoutes, ...caseStudyRoutes, ...blogRoutes];
+}

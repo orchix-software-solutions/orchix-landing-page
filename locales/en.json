@@ -1,0 +1,85 @@
+{
+  "hero": {
+    "line1_prefix": "We ship. We",
+    "line1_italic": "stay.",
+    "line2_prefix": "We",
+    "line2_outline": "deliver.",
+    "subtitle_before": "We build enterprise applications, CRMs, ERPs, SaaS products, and AI systems with",
+    "highlight_1": "radical transparency",
+    "subtitle_middle": ". Weekly demos you can touch. Shared repos you can audit.",
+    "highlight_2": "Deadlines we actually hit.",
+    "cta_primary": "Book a Free Discovery Call",
+    "cta_secondary": "Explore Services",
+    "stats": [
+      { "number": "100%", "label": "On-time Delivery"   },
+      { "number": "4.9",  "label": "Avg. Client Rating" },
+      { "number": "4",    "label": "Projects Completed" }
+    ],
+    "stats_footnote": "* Early-stage agency — 4 completed projects, growing intentionally. Numbers reflect real client work, not estimates."
+  },
+  "services": {
+    "eyebrow": "What We Do",
+    "heading_prefix": "Services Built Around",
+    "heading_italic": "Your Growth",
+    "items": [
+      {
+        "title": "Enterprise Applications & CRM/ERP",
+        "desc": "Custom-built CRMs, ERPs, and business management systems — from sales pipelines to inventory, tailored to replace off-the-shelf tools that don't fit."
+      },
+      {
+        "title": "Business Process Automation",
+        "desc": "Automate manual workflows, connect disparate systems, and build internal tools that save your team thousands of hours every year."
+      },
+      {
+        "title": "SaaS Product Development",
+        "desc": "From MVP to scale — we plan, build, and grow revenue-generating SaaS platforms for founders and businesses."
+      },
+      {
+        "title": "AI & Intelligent Automation",
+        "desc": "AI agents, MCP servers, RAG pipelines, and workflow automation that connect your tools and eliminate manual processes."
+      },
+      {
+        "title": "Web & App Development",
+        "desc": "Secure, scalable web and mobile applications built with a focus on high performance and intuitive user experience."
+      },
+      {
+        "title": "Software Maintenance & Support",
+        "desc": "Long-term partnership to ensure your software remains secure, optimized, and ready to scale as your business grows."
+      }
+    ]
+  },
+  "announcement": {
+    "text": "🎉 Launch Offer — 10% off all projects. Limited slots available. Book yours now"
+  },
+  "founder": {
+    "eyebrow": "From the Founder",
+    "badge": "Radical Transparency",
+    "quote_before": "I've spent",
+    "quote_years": "5 years",
+    "quote_after": "watching great ideas get buried by agencies that overpromise, underdeliver, and vanish after the invoice.",
+    "quote_secondary": "OrchiX is my answer to that — radical transparency, shared repos, weekly demos you can actually touch, and deadlines that mean something.",
+    "name": "Parit Bhardwaj",
+    "role": "Founder & Lead Engineer — OrchiX Software Solutions",
+    "cta": "Book a Call with Parit"
+  },
+  "nav": {
+    "services": "Services",
+    "industries": "Industries",
+    "case_studies": "Case Studies",
+    "about": "About",
+    "blog": "Blogs",
+    "cta": "Let's Talk",
+    "industries_items": [
+      { "title": "FinTech",            "desc": "Payment systems, banking apps & trading platforms" },
+      { "title": "Healthcare",         "desc": "Patient portals, EHR systems & telehealth apps" },
+      { "title": "E-Commerce",         "desc": "Marketplaces, storefronts & inventory systems" },
+      { "title": "Real Estate",        "desc": "Property platforms, CRMs & listing portals" },
+      { "title": "EdTech",             "desc": "LMS platforms, e-learning apps & student portals" },
+      { "title": "Logistics",          "desc": "Fleet tracking, supply chain & delivery apps" },
+      { "title": "Manufacturing",      "desc": "IoT dashboards, MES & production systems" },
+      { "title": "HR & Staffing",      "desc": "Recruitment CRMs, onboarding & workforce tools" },
+      { "title": "Legal & Compliance", "desc": "Contract tools, document AI & compliance systems" },
+      { "title": "Travel & Hospitality", "desc": "Booking engines, guest portals & operations systems" }
+    ]
+  }
+}

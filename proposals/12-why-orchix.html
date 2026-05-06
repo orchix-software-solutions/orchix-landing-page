@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>04 Why OrchiX — Real Estate Sales & Operations Platform | OrchiX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --bg-page: #f8f7f4;
+    --blue: #0ea5e9;
+    --blue-mid: #3b82f6;
+    --purple: #7c3aed;
+    --purple-deep: #6b21a8;
+    --purple-light: #a78bfa;
+    --white: #f1f0f5;
+    --text-dark: #1a1a2e;
+    --text-body: #2d2d44;
+    --text-muted: #6b7280;
+  }
+
+  ::selection {
+    background: rgba(124, 58, 237, 0.2);
+    color: #1a1a2e;
+  }
+
+  @page { margin: 0; size: A4; }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: var(--bg-page);
+    color: var(--text-dark);
+    font-family: 'Space Grotesk', sans-serif;
+    height: 100%;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ─── NOISE / GRAIN OVERLAY ─── */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+  }
+
+  /* ─── TOP GRADIENT BAR ─── */
+  .top-bar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--blue), var(--purple), var(--blue));
+    background-size: 200% 100%;
+    animation: shimmer 4s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* ─── PAGE ─── */
+  .page {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page-inner {
+    position: relative;
+    z-index: 1;
+    padding: 2.5rem 3.5rem 1.5rem;
+    flex: 1;
+  }
+
+  /* ─── SECTION NUMBER ─── */
+  .section-number {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--purple);
+    margin-bottom: 0.5rem;
+  }
+
+  /* ─── SECTION TITLE ─── */
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 2rem;
+    color: var(--text-dark);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  /* ─── GRADIENT DIVIDER ─── */
+  .gradient-divider {
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--purple));
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gradient-divider::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: divider-shine 3s ease-in-out infinite;
+  }
+
+  @keyframes divider-shine {
+    0%, 100% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+  }
+
+  /* ─── CARD GRID ─── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.1rem;
+  }
+
+  .card {
+    border: 1px solid rgba(124, 58, 237, 0.15);
+    border-radius: 10px;
+    padding: 1.5rem;
+    background: white;
+  }
+
+  .card-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+  }
+
+  .card-body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    line-height: 1.75;
+    color: var(--text-body);
+    text-align: justify;
+  }
+
+  /* ─── PAGE FOOTER ─── */
+  .page-footer {
+    position: relative;
+    z-index: 1;
+    padding: 1rem 3.5rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+  }
+
+  .page-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 3.5rem;
+    right: 3.5rem;
+    height: 1px;
+    background: linear-gradient(90deg, var(--purple), var(--blue));
+    opacity: 0.3;
+  }
+
+  .page-footer-company {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .page-footer-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--purple);
+  }
+
+  /* ─── PDF / PRINT SAFE ─── */
+  @media print {
+    @page { margin: 0; }
+    body { background: var(--bg-page) !important; margin: 0; padding: 0; }
+    body::after { display: none !important; }
+    .top-bar { display: none !important; }
+    *, *::before, *::after {
+      animation-delay: 0s !important;
+      animation-duration: 0s !important;
+    }
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 640px) {
+    .page-inner { padding: 2rem 1.5rem 1rem; }
+    .page-footer { padding: 1rem 1.5rem 1.5rem; }
+    .page-footer::before { left: 1.5rem; right: 1.5rem; }
+    .card-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top gradient bar -->
+<div class="top-bar"></div>
+
+<!-- Page -->
+<div class="page">
+  <div class="page-inner">
+
+    <!-- Section label -->
+    <div class="section-number">0 4 &nbsp; / &nbsp; W H Y &nbsp; O R C H I X</div>
+
+    <!-- Section title -->
+    <h1 class="section-title">Why Choose Orchix Software Solutions</h1>
+
+    <!-- Gradient divider -->
+    <div class="gradient-divider"></div>
+
+    <!-- Card grid -->
+    <div class="card-grid">
+
+      <div class="card">
+        <div class="card-title">Real Products, Not Prototypes</div>
+        <div class="card-body">Our team ships production marketplaces, SaaS platforms, and CRM systems for clients across India, Saudi Arabia, and the US. Our work holds up under real users, real load, and real edge cases.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Transparent About Trade-offs</div>
+        <div class="card-body">You saw it in this proposal — we told you upfront what is out of scope, what we cannot guarantee, and what risks come with Evolution API. That is how we work throughout the engagement. No surprises at week 7.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">We Own the Stack End-to-End</div>
+        <div class="card-body">Bun, React 19, RTK Query, Express, Prisma, Redis, BullMQ — this is our daily stack across multiple live projects. We are not learning on your budget.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">We Understand Real Estate</div>
+        <div class="card-body">Lead collisions, CP wars over direct leads, discount approval politics, construction-linked billing cycles, RERA compliance — these are not abstract concepts to us.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Fixed Budget, Committed Scope</div>
+        <div class="card-body">What is committed gets delivered. What is flagged as non-guaranteed gets an honest review in discovery. What is out of scope stays out of scope unless we formally expand it together.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">One Team, Full Ownership</div>
+        <div class="card-body">You work directly with the team building the product. No account manager telephone game, no offshore handoffs, no 'let me check with the developer' delays.</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Page footer -->
+  <div class="page-footer">
+    <div class="page-footer-company">Orchix Software Solutions</div>
+    <div class="page-footer-number">13</div>
+  </div>
+</div>
+
+</body>
+</html>

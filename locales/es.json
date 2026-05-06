@@ -1,0 +1,124 @@
+{
+  "hero": {
+    "line1_prefix": "Enviamos. Nos",
+    "line1_italic": "Quedamos.",
+    "line2_prefix": "Nosotros",
+    "line2_outline": "Cumplimos.",
+    "subtitle_before": "Desarrollamos productos SaaS, software personalizado y sistemas de automatización con",
+    "highlight_1": "transparencia radical",
+    "subtitle_middle": ". Demos semanales que puedes tocar. Repositorios compartidos que puedes auditar.",
+    "highlight_2": "Plazos que realmente cumplimos.",
+    "cta_primary": "Reserva una Llamada de Descubrimiento Gratuita",
+    "cta_secondary": "Ver Nuestro Trabajo",
+    "stats": [
+      {
+        "number": "5",
+        "label": "Productos Entregados"
+      },
+      {
+        "number": "100%",
+        "label": "Entrega a Tiempo"
+      },
+      {
+        "number": "4.9",
+        "label": "Valoración de Clientes"
+      },
+      {
+        "number": "3+",
+        "label": "Años Construyendo"
+      }
+    ],
+    "stats_footnote": "* Early-stage agency — 4 completed projects, growing intentionally. Numbers reflect real client work, not estimates."
+  },
+  "services": {
+    "eyebrow": "Lo Que Hacemos",
+    "heading_prefix": "Servicios Diseñados Para",
+    "heading_italic": "Tu Crecimiento",
+    "items": [
+      {
+        "title": "Desarrollo de Software Personalizado",
+        "desc": "Software a medida construido para adaptarse a tus flujos de trabajo únicos y resolver problemas empresariales específicos donde las herramientas estándar se quedan cortas."
+      },
+      {
+        "title": "Desarrollo de Productos SaaS",
+        "desc": "Ingeniería integral para fundadores y empresas que buscan planificar, construir y escalar plataformas SaaS generadoras de ingresos."
+      },
+      {
+        "title": "Desarrollo Web y de Aplicaciones",
+        "desc": "Aplicaciones web y móviles seguras y escalables, construidas con enfoque en alto rendimiento y experiencia de usuario intuitiva."
+      },
+      {
+        "title": "Automatización Empresarial",
+        "desc": "Automatiza procesos manuales, integra sistemas dispares y optimiza flujos de trabajo para reducir errores y ahorrar miles de horas."
+      },
+      {
+        "title": "Servidor MCP e Integración de IA",
+        "desc": "Conecta agentes de IA a tus herramientas del mundo real con servidores MCP personalizados, pipelines RAG y capas de automatización inteligente."
+      },
+      {
+        "title": "Mantenimiento y Soporte de Software",
+        "desc": "Asociación a largo plazo para garantizar que tu software permanezca seguro, optimizado y listo para escalar a medida que tu negocio crece."
+      }
+    ]
+  },
+  "announcement": {
+    "text": "Solo quedan 3 plazas para abril — Comienza tu proyecto antes de que se agoten"
+  },
+  "founder": {
+    "eyebrow": "Del Fundador",
+    "badge": "5 Productos Entregados",
+    "quote_before": "He pasado",
+    "quote_years": "5 años",
+    "quote_after": "viendo cómo grandes ideas son enterradas por agencias que prometen demasiado, entregan poco y desaparecen tras la factura.",
+    "quote_secondary": "OrchiX es mi respuesta a eso — transparencia radical, repositorios compartidos, demos semanales que puedes tocar de verdad, y plazos que significan algo.",
+    "name": "Parit Bhardwaj",
+    "role": "Fundador e Ingeniero Principal — OrchiX Software Solutions",
+    "cta": "Reserva una Llamada con Parit"
+  },
+  "nav": {
+    "services": "Servicios",
+    "industries": "Industrias",
+    "case_studies": "Casos de Éxito",
+    "about": "Nosotros",
+    "blog": "Blog",
+    "cta": "Hablemos",
+    "industries_items": [
+      {
+        "title": "FinTech",
+        "desc": "Sistemas de pago, aplicaciones bancarias y plataformas de trading"
+      },
+      {
+        "title": "Salud",
+        "desc": "Portales de pacientes, sistemas EHR y aplicaciones de telesalud"
+      },
+      {
+        "title": "Comercio Electrónico",
+        "desc": "Marketplaces, tiendas en línea y sistemas de inventario"
+      },
+      {
+        "title": "Bienes Raíces",
+        "desc": "Plataformas inmobiliarias, CRMs y portales de listados"
+      },
+      {
+        "title": "EdTech",
+        "desc": "Plataformas LMS, aplicaciones de e-learning y portales para estudiantes"
+      },
+      {
+        "title": "Logística",
+        "desc": "Seguimiento de flotas, cadena de suministro y aplicaciones de entrega"
+      },
+      {
+        "title": "Manufactura",
+        "desc": "Paneles IoT, MES y sistemas de producción"
+      },
+      {
+        "title": "RRHH y Reclutamiento",
+        "desc": "CRMs de reclutamiento, incorporación y herramientas de gestión laboral"
+      },
+      {
+        "title": "Legal y Cumplimiento",
+        "desc": "Herramientas de contratos, IA documental y sistemas de cumplimiento"
+      }
+    ]
+  }
+}

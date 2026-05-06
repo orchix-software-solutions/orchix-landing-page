@@ -1,0 +1,124 @@
+{
+  "hero": {
+    "line1_prefix": "我们交付。我们",
+    "line1_italic": "坚守。",
+    "line2_prefix": "我们",
+    "line2_outline": "兑现承诺。",
+    "subtitle_before": "我们以",
+    "highlight_1": "极致透明",
+    "subtitle_middle": "的方式构建 SaaS 产品、定制软件和自动化系统。每周可体验的演示，可审查的共享代码仓库。",
+    "highlight_2": "截止日期，我们真正做到。",
+    "cta_primary": "预约免费探索通话",
+    "cta_secondary": "查看我们的作品",
+    "stats": [
+      {
+        "number": "5",
+        "label": "已交付产品"
+      },
+      {
+        "number": "100%",
+        "label": "按时交付率"
+      },
+      {
+        "number": "4.9",
+        "label": "平均客户评分"
+      },
+      {
+        "number": "3+",
+        "label": "年构建经验"
+      }
+    ],
+    "stats_footnote": "* Early-stage agency — 4 completed projects, growing intentionally. Numbers reflect real client work, not estimates."
+  },
+  "services": {
+    "eyebrow": "我们的服务",
+    "heading_prefix": "围绕",
+    "heading_italic": "您的成长",
+    "items": [
+      {
+        "title": "定制软件开发",
+        "desc": "量身定制的软件，完美契合您独特的工作流程，解决现成工具无法满足的特定业务问题。"
+      },
+      {
+        "title": "SaaS 产品开发",
+        "desc": "为希望规划、构建并扩展创收型 SaaS 平台的创始人和企业提供端到端工程服务。"
+      },
+      {
+        "title": "网页与应用开发",
+        "desc": "以高性能和直观用户体验为核心，构建安全、可扩展的网页及移动应用程序。"
+      },
+      {
+        "title": "业务自动化",
+        "desc": "自动化手动流程，整合分散系统，优化工作流程，以减少错误并节省数千小时工作量。"
+      },
+      {
+        "title": "MCP 服务器与 AI 集成",
+        "desc": "通过自定义 MCP 服务器、RAG 管道和智能自动化层，将 AI 智能体连接到您的现实世界工具。"
+      },
+      {
+        "title": "软件维护与支持",
+        "desc": "长期合作伙伴关系，确保您的软件始终保持安全、优化，并随着业务增长随时准备扩展。"
+      }
+    ]
+  },
+  "announcement": {
+    "text": "四月份仅剩 3 个席位 — 请在名额填满前启动您的项目"
+  },
+  "founder": {
+    "eyebrow": "创始人寄语",
+    "badge": "已交付 5 个产品",
+    "quote_before": "我花了",
+    "quote_years": "5 年时间",
+    "quote_after": "目睹许多好创意被那些过度承诺、交付不足、收款后消失的机构所埋没。",
+    "quote_secondary": "OrchiX 是我的答案 — 极致透明、共享代码仓库、每周可真实体验的演示，以及真正有意义的截止日期。",
+    "name": "Parit Bhardwaj",
+    "role": "创始人兼首席工程师 — OrchiX Software Solutions",
+    "cta": "与 Parit 预约通话"
+  },
+  "nav": {
+    "services": "服务",
+    "industries": "行业",
+    "case_studies": "案例研究",
+    "about": "关于我们",
+    "blog": "博客",
+    "cta": "联系我们",
+    "industries_items": [
+      {
+        "title": "金融科技",
+        "desc": "支付系统、银行应用及交易平台"
+      },
+      {
+        "title": "医疗健康",
+        "desc": "患者门户、EHR 系统及远程医疗应用"
+      },
+      {
+        "title": "电子商务",
+        "desc": "电商市场、店面及库存管理系统"
+      },
+      {
+        "title": "房地产",
+        "desc": "房产平台、CRM 及房源门户"
+      },
+      {
+        "title": "教育科技",
+        "desc": "LMS 平台、在线学习应用及学生门户"
+      },
+      {
+        "title": "物流",
+        "desc": "车队追踪、供应链及配送应用"
+      },
+      {
+        "title": "制造业",
+        "desc": "IoT 仪表盘、MES 及生产系统"
+      },
+      {
+        "title": "人力资源与招聘",
+        "desc": "招聘 CRMs、入职培训及劳动力管理工具"
+      },
+      {
+        "title": "法律与合规",
+        "desc": "合同工具、文档 AI 及合规系统"
+      }
+    ]
+  }
+}

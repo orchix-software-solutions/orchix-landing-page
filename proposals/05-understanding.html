@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>06 Understanding (contd.) — Real Estate Sales & Operations Platform | OrchiX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --bg-page: #f8f7f4;
+    --blue: #0ea5e9;
+    --blue-mid: #3b82f6;
+    --purple: #7c3aed;
+    --purple-deep: #6b21a8;
+    --purple-light: #a78bfa;
+    --white: #f1f0f5;
+    --text-dark: #1a1a2e;
+    --text-body: #2d2d44;
+    --text-muted: #6b7280;
+  }
+
+  ::selection {
+    background: rgba(124, 58, 237, 0.2);
+    color: #1a1a2e;
+  }
+
+  @page { margin: 0; size: A4; }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: var(--bg-page);
+    color: var(--text-dark);
+    font-family: 'Space Grotesk', sans-serif;
+    height: 100%;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ─── NOISE / GRAIN OVERLAY ─── */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+  }
+
+  /* ─── TOP GRADIENT BAR ─── */
+  .top-bar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--blue), var(--purple), var(--blue));
+    background-size: 200% 100%;
+    animation: shimmer 4s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* ─── PAGE ─── */
+  .page {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page-inner {
+    position: relative;
+    z-index: 1;
+    padding: 2.5rem 3.5rem 1.5rem;
+    flex: 1;
+  }
+
+  /* ─── BODY TEXT ─── */
+  .body-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    line-height: 1.75;
+    color: var(--text-body);
+    margin-bottom: 1rem;
+    text-align: justify;
+  }
+
+  /* ─── BULLET LIST ─── */
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.8rem 0;
+  }
+
+  .feature-list li {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    line-height: 1.7;
+    color: var(--text-body);
+    padding-left: 1.4rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    text-align: justify;
+  }
+
+  .feature-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--purple);
+  }
+
+  .feature-list li strong {
+    color: var(--text-dark);
+    font-weight: 700;
+  }
+
+  /* ─── WARNING / NOTE BOX ─── */
+  .note-box {
+    background: rgba(124, 58, 237, 0.06);
+    border-left: 3px solid var(--purple);
+    padding: 1.2rem 1.5rem;
+    border-radius: 0 8px 8px 0;
+    margin-top: 1.5rem;
+  }
+
+  .note-box-heading {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--purple-deep);
+    margin-bottom: 0.8rem;
+  }
+
+  .note-box p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    line-height: 1.75;
+    color: var(--text-body);
+    margin-bottom: 0.8rem;
+    text-align: justify;
+  }
+
+  .note-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ─── PAGE FOOTER ─── */
+  .page-footer {
+    position: relative;
+    z-index: 1;
+    padding: 1rem 3.5rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+  }
+
+  .page-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 3.5rem;
+    right: 3.5rem;
+    height: 1px;
+    background: linear-gradient(90deg, var(--purple), var(--blue));
+    opacity: 0.3;
+  }
+
+  .page-footer-company {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .page-footer-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--purple);
+  }
+
+  /* ─── PDF / PRINT SAFE ─── */
+  @media print {
+    @page { margin: 0; }
+    body { background: var(--bg-page) !important; margin: 0; padding: 0; }
+    body::after { display: none !important; }
+    .top-bar { display: none !important; }
+    *, *::before, *::after {
+      animation-delay: 0s !important;
+      animation-duration: 0s !important;
+    }
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 640px) {
+    .page-inner { padding: 2rem 1.5rem 1rem; }
+    .page-footer { padding: 1rem 1.5rem 1.5rem; }
+    .page-footer::before { left: 1.5rem; right: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top gradient bar -->
+<div class="top-bar"></div>
+
+<!-- Page -->
+<div class="page">
+  <div class="page-inner">
+
+    <!-- Continuing Pillar 5 bullet -->
+    <ul class="feature-list">
+      <li><strong>Executive dashboard</strong> showing inventory velocity (which wing or floor is selling fastest) and 30/60/90-day cash flow projections based on construction milestones.</li>
+    </ul>
+
+    <!-- Honest Note on Scope -->
+    <div class="note-box">
+      <div class="note-box-heading">&#9888; Honest Note on Scope</div>
+
+      <p>
+        3D Stacking Plan is out of scope. 3D floor-by-floor visualization requires specialized WebGL/Three.js work, architectural asset modeling, and a separate production pipeline that does not fit this budget or timeline.
+      </p>
+
+      <p>
+        2D Interactive Stacking Plan is in scope, but not guaranteed. We can build it, but deliverability depends heavily on the quality and format of floor plan assets you provide. We will confirm feasibility during discovery week. If it fits, we deliver it. If it does not, we flag it early and propose it as a Phase 2 add-on rather than rushing a weak version.
+      </p>
+
+      <p>
+        WhatsApp will run on Evolution API initially, with a clean migration path to Meta's official WhatsApp Cloud API once your Business verification is approved. Full trade-offs covered in the solution section.
+      </p>
+
+      <p>
+        All remaining scope is committed, subject to discovery validation, third-party provider support, and client-provided assets/data.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- Page footer -->
+  <div class="page-footer">
+    <div class="page-footer-company">Orchix Software Solutions</div>
+    <div class="page-footer-number">06</div>
+  </div>
+</div>
+
+</body>
+</html>
