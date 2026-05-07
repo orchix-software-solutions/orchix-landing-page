@@ -5,7 +5,7 @@ import FaqAccordion from "./faq-accordion";
 import CtaButton from "./cta-button";
 
 export const metadata: Metadata = {
-  title: "AI & Intelligent Automation Services | AI Agents, MCP Servers & Workflow Automation | OrchiX",
+  title: "AI & Intelligent Automation Services | OrchiX",
   description:
     "OrchiX builds AI agents, MCP servers, and intelligent automation systems that handle complex decisions — not just rule-based tasks. Custom AI solutions built for your business, not demos that don't scale.",
   keywords: [

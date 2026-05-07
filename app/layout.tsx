@@ -60,7 +60,7 @@ const playfairDisplay = Playfair_Display({
 
 export const metadata: Metadata = {
   title: {
-    default: "OrchiX — Enterprise CRM, ERP, SaaS & AI Software Development Agency",
+    default: "OrchiX — CRM, ERP, SaaS & AI Software Development Agency",
     template: "%s | OrchiX Software Solutions",
   },
   description:
@@ -84,7 +84,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://orchixsoftwaresolutions.com",
-    title: "OrchiX — Enterprise CRM, ERP, SaaS & AI Software Development Agency",
+    title: "OrchiX — CRM, ERP, SaaS & AI Software Development Agency",
     description:
       "We build custom CRMs, ERPs, enterprise applications, SaaS products, and AI systems with radical transparency. Weekly demos, shared repos, deadlines we actually hit.",
     siteName: "OrchiX Software Solutions",
@@ -92,7 +92,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "OrchiX — Enterprise CRM, ERP, SaaS & AI Software Development Agency",
+    title: "OrchiX — CRM, ERP, SaaS & AI Software Development Agency",
     description:
       "We build custom CRMs, ERPs, enterprise applications, SaaS products, and AI systems with radical transparency.",
     images: ["/orchix-og-image.png"],

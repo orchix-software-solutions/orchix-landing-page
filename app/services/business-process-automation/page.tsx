@@ -5,7 +5,7 @@ import FaqAccordion from "./faq-accordion";
 import CtaButton from "./cta-button";
 
 export const metadata: Metadata = {
-  title: "Business Process Automation Services | Automate Workflows & Save Hours | OrchiX",
+  title: "Business Process Automation Services | OrchiX",
   description:
     "OrchiX automates repetitive workflows, connects your existing systems, and eliminates manual work your team shouldn't be doing. Custom BPA solutions built around your actual processes — not generic templates.",
   keywords: [

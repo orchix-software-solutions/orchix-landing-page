@@ -5,7 +5,7 @@ import FaqAccordion from "./faq-accordion";
 import CtaButton from "./cta-button";
 
 export const metadata: Metadata = {
-  title: "Custom CRM & ERP Development Services | Enterprise Application Development",
+  title: "Custom CRM & ERP Development Services | OrchiX",
   description:
     "OrchiX builds custom CRM systems, ERP platforms, and enterprise business management software tailored to your exact workflows — with radical transparency, weekly demos, and shared repos.",
   keywords: [

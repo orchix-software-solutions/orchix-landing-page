@@ -5,7 +5,7 @@ import FaqAccordion from "./faq-accordion";
 import CtaButton from "./cta-button";
 
 export const metadata: Metadata = {
-  title: "Software Maintenance & Support Services | Long-Term Partnership & Security | OrchiX",
+  title: "Software Maintenance & Support Services | OrchiX",
   description:
     "OrchiX provides ongoing software maintenance, security patching, performance monitoring, and technical support for web apps, mobile apps, and SaaS products. A real engineering team — not a helpdesk ticket.",
   keywords: [

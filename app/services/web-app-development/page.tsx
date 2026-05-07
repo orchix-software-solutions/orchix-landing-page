@@ -5,7 +5,7 @@ import FaqAccordion from "./faq-accordion";
 import CtaButton from "./cta-button";
 
 export const metadata: Metadata = {
-  title: "Web & App Development Services | Scalable Web and Mobile Apps | OrchiX",
+  title: "Web & App Development Services | OrchiX",
   description:
     "OrchiX builds scalable web and mobile applications — pixel-perfect, fast, and built to grow. Custom web development, iOS, Android, and cross-platform apps. Weekly demos, shared repos, zero lock-in.",
   keywords: [

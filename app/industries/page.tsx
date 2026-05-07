@@ -3,12 +3,12 @@ import Link from "next/link";
 import JsonLd from "@/components/json-ld";
 
 export const metadata: Metadata = {
-  title: "Industries We Serve — FinTech, Healthcare, E-Commerce & More | OrchiX",
+  title: "Industries We Serve | FinTech, Healthcare & More | OrchiX",
   description:
     "OrchiX builds custom software across FinTech, Healthcare, E-Commerce, Real Estate, EdTech, Logistics, Manufacturing, HR, Legal, and Travel — tailored to each industry's unique needs.",
   alternates: { canonical: "https://orchixsoftwaresolutions.com/industries" },
   openGraph: {
-    title: "Industries We Serve — FinTech, Healthcare, E-Commerce & More | OrchiX",
+    title: "Industries We Serve | FinTech, Healthcare & More | OrchiX",
     description:
       "OrchiX builds custom software across FinTech, Healthcare, E-Commerce, Real Estate, EdTech, Logistics, Manufacturing, HR, Legal, and Travel.",
     url: "https://orchixsoftwaresolutions.com/industries",
