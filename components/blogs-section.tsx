@@ -120,8 +120,6 @@ export default function BlogsSection() {
                       <span className="text-[0.68rem] text-[#f5f2eb] font-medium leading-tight">{post.author.name}</span>
                       <span className="text-[0.6rem] text-[#8a8680] leading-tight">{post.author.role}</span>
                     </div>
-                    <span className="text-[#8a8680]/40">·</span>
-                    <span className="text-[0.68rem] text-[#8a8680]">{formatDate(post.date)}</span>
                   </div>
                   <span className="inline-flex items-center gap-1 text-[0.68rem] font-semibold text-[#a78bfa] opacity-0 group-hover/card:opacity-100 transition-opacity duration-300">
                     Read
