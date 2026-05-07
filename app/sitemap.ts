@@ -95,5 +95,44 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...caseStudyRoutes, ...blogRoutes];
+  const locationRoutes: MetadataRoute.Sitemap = [
+    {
+      url: `${base}/locations/custom-software-development-new-york`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
+    },
+    {
+      url: `${base}/locations/custom-software-development-san-francisco`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
+    },
+    {
+      url: `${base}/locations/custom-software-development-austin`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
+    },
+    {
+      url: `${base}/locations/custom-software-development-chicago`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
+    },
+    {
+      url: `${base}/locations/custom-software-development-los-angeles`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
+    },
+    {
+      url: `${base}/locations/custom-software-development-seattle`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
+    },
+  ];
+
+  return [...staticRoutes, ...locationRoutes, ...caseStudyRoutes, ...blogRoutes];
 }

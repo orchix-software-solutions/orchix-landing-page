@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { useBooking } from "@/lib/booking-context";
 
+const currentMonth = new Date().toLocaleString("en-US", { month: "long" });
+
 export default function EngagementDialog() {
   const [visible, setVisible] = useState(false);
   const [closing, setClosing] = useState(false);
@@ -71,7 +73,7 @@ export default function EngagementDialog() {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[rgba(124,91,245,0.3)] bg-[rgba(124,91,245,0.07)] mb-5">
             <span className="w-[6px] h-[6px] rounded-full bg-[#7c5bf5] animate-[blink_2s_ease-in-out_infinite]" aria-hidden="true" />
             <span className="text-[0.7rem] font-semibold tracking-[0.1em] uppercase text-[#a78bfa]">
-              Only 3 spots left for April
+              Only 3 spots left for {currentMonth}
             </span>
           </div>
 
