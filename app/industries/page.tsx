@@ -114,10 +114,6 @@ export default function IndustriesPage() {
 
       {/* Hero */}
       <section className="max-w-[1200px] mx-auto px-6 pt-32 pb-14">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[rgba(124,91,245,0.3)] bg-[rgba(124,91,245,0.07)] mb-6">
-          <span className="w-[6px] h-[6px] rounded-full bg-[#7c5bf5]" aria-hidden="true" />
-          <span className="text-[0.68rem] font-semibold tracking-[0.12em] uppercase text-[#a78bfa]">Industries We Serve</span>
-        </div>
         <h1
           className="font-syne font-extrabold tracking-[-0.04em] leading-[1.1] text-[#f5f2eb] mb-5 max-w-[700px]"
           style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)" }}
