@@ -151,10 +151,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="mt-6 flex flex-col items-center gap-1">
           <p className="text-center text-[0.7rem] text-[#8a8680]">
-            © {new Date().getFullYear()} OrchiX. All rights reserved. Built with obsession.
-          </p>
-          <p className="text-center text-[0.65rem] text-[#8a8680]/60">
-            OrchiX Software Solutions Pvt. Ltd. &mdash; Registered in India
+            © {new Date().getFullYear()} OrchiX. All rights reserved.
           </p>
         </div>
       </div>
