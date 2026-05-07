@@ -61,7 +61,7 @@ const playfairDisplay = Playfair_Display({
 export const metadata: Metadata = {
   title: {
     default: "OrchiX — CRM, ERP, SaaS & AI Software Development Agency",
-    template: "%s | OrchiX Software Solutions",
+    template: "%s",
   },
   description:
     "OrchiX builds custom CRMs, ERPs, enterprise applications, SaaS products, and AI systems with radical transparency. Weekly demos, shared repos, and deadlines we actually hit.",
