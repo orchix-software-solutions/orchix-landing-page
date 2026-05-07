@@ -184,12 +184,6 @@ const useCases = [
   },
 ];
 
-const stats = [
-  { value: "25+", label: "fintech products shipped" },
-  { value: "PCI-DSS", label: "SOC 2 & RBI-aware builds" },
-  { value: "$0", label: "client security breach losses" },
-  { value: "30+", label: "payment gateway & banking API integrations" },
-];
 
 const divider = (
   <div
@@ -228,21 +222,6 @@ export default function FintechPage() {
         </p>
         <div className="flex items-center gap-3 flex-wrap">
           <CtaButton label="Discuss Your FinTech Project" />
-        </div>
-      </section>
-
-      {/* Stats bar */}
-      <section className="max-w-[1200px] mx-auto px-[3rem] pb-16 max-[1100px]:px-6">
-        <div className="grid grid-cols-4 gap-4 max-[700px]:grid-cols-2">
-          {stats.map((s) => (
-            <div
-              key={s.label}
-              className="rounded-2xl border border-[rgba(34,211,238,0.15)] bg-[rgba(34,211,238,0.04)] px-6 py-5"
-            >
-              <p className="font-syne font-extrabold text-[1.4rem] text-[#22d3ee] mb-1">{s.value}</p>
-              <p className="text-[0.78rem] text-[#8a8680] leading-[1.5]">{s.label}</p>
-            </div>
-          ))}
         </div>
       </section>
 
@@ -299,10 +278,7 @@ export default function FintechPage() {
                 {svc.icon}
               </div>
               <h3 className="font-syne font-bold text-[0.95rem] text-[#f5f2eb] mb-2">{svc.title}</h3>
-              <p className="text-[0.84rem] text-[#8a8680] leading-[1.65] mb-3">{svc.desc}</p>
-              <p className="text-[0.75rem] text-[#22d3ee] leading-[1.5] border-t border-[rgba(34,211,238,0.12)] pt-3">
-                Good for: {svc.note}
-              </p>
+              <p className="text-[0.84rem] text-[#8a8680] leading-[1.65]">{svc.desc}</p>
             </div>
           ))}
         </div>
