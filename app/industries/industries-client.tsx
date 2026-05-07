@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import Link from "next/link";
 import { useRef } from "react";
 
 type Industry = {
@@ -109,33 +108,6 @@ export function IndustriesCta() {
           We don&apos;t need to have shipped in your vertical to understand it.
           Give us a week and we&apos;ll know your workflow well enough to build for it.
         </motion.p>
-
-        {/* CTA button */}
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.44 }}
-        >
-          <Link
-            href="/contact"
-            className="group inline-flex items-center gap-2.5 px-8 py-[0.95rem] bg-[#7c5bf5] text-white text-[0.88rem] font-semibold rounded-full tracking-[0.02em] transition-all duration-300 no-underline shadow-[0_0_30px_rgba(124,91,245,0.35)] hover:bg-[#6a4ae0] hover:shadow-[0_0_55px_rgba(124,91,245,0.5)] hover:-translate-y-[2px]"
-          >
-            Book a Free Discovery Call
-            <motion.svg
-              className="transition-transform duration-300 group-hover:translate-x-[3px]"
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              aria-hidden="true"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </motion.svg>
-          </Link>
-        </motion.div>
       </div>
     </section>
   );
