@@ -22,7 +22,8 @@ export type BlogBlock =
   | { type: "subheading"; text: string }
   | { type: "image"; src: string; alt: string; caption?: string }
   | { type: "quote"; text: string; cite?: string }
-  | { type: "list"; items: string[] };
+  | { type: "list"; items: string[] }
+  | { type: "table"; caption?: string; headers: string[]; rows: string[][] };
 
 export const blogPosts: BlogPost[] = [
   {
@@ -177,6 +178,55 @@ export const blogPosts: BlogPost[] = [
       {
         type: "heading",
         text: "The Direct Comparison: What Actually Matters",
+      },
+      {
+        type: "table",
+        caption: "Market Share & Maturity (2025)",
+        headers: ["Provider", "Market Share", "Annual Revenue (FY2025)", "YoY Growth"],
+        rows: [
+          ["AWS", "~30%", "~$115B", "~17%"],
+          ["Microsoft Azure", "~20%", "~$100B", "~21%"],
+          ["Google Cloud", "~13%", "~$48B", "~32%"],
+        ],
+      },
+      {
+        type: "table",
+        caption: "Compute Cost Comparison (on-demand, general purpose)",
+        headers: ["Cost Type", "AWS", "Azure", "Google Cloud"],
+        rows: [
+          ["On-Demand", "Baseline", "Comparable to AWS", "~8% cheaper (Q1 2026 cuts)"],
+          ["Reserved / Committed", "Up to 72% off", "Up to 72% off", "Sustained Usage Discounts (auto, up to 30%)"],
+          ["Spot / Preemptible", "Up to 90% off", "Up to 80% off", "Up to 80% off"],
+          ["Arm-based compute", "Graviton — competitive savings", "65% cheaper than x86 on-demand", "Tau T2A — competitive savings"],
+          ["Egress costs", "High (reduced but notable)", "Eliminated inbound; 10% egress cut", "Competitive; free within same region"],
+        ],
+      },
+      {
+        type: "table",
+        caption: "AI & ML Pricing Comparison",
+        headers: ["Workload", "AWS", "Azure", "Google Cloud"],
+        rows: [
+          ["LLM inference (GPT-4o class)", "Via Bedrock (Anthropic/Meta)", "Native OpenAI — best pricing for GPT-4o", "Gemini native; 5–10% cheaper than AWS/Azure"],
+          ["Model training hardware", "Trainium chips", "NVIDIA A100/H100", "TPU v5p — most cost-effective for large models"],
+          ["ML pipeline (managed)", "SageMaker", "Azure ML Studio", "Vertex AI"],
+          ["GenAI services growth (Q2 2025)", "Strong", "Strong (OpenAI partnership)", "160% YoY — fastest growing"],
+          ["BigQuery / Analytics", "Redshift", "Synapse Analytics", "BigQuery — up to 40% price drop in 2025"],
+        ],
+      },
+      {
+        type: "table",
+        caption: "Key Capabilities at a Glance",
+        headers: ["Capability", "AWS", "Azure", "Google Cloud"],
+        rows: [
+          ["Service catalog", "200+ services (widest)", "200+ services", "~150 services"],
+          ["Global regions", "Most regions worldwide", "Strong, fewer in S. Asia/LatAm", "Growing fast"],
+          ["Hybrid cloud", "AWS Outposts (good)", "Azure Arc (best-in-class)", "Anthos (solid)"],
+          ["Kubernetes", "EKS (strong)", "AKS (strong)", "GKE (native — best)"],
+          ["OpenAI / GPT models", "Via Bedrock (3rd party)", "Exclusive partnership", "Gemini native"],
+          ["Developer experience", "Largest knowledge base", "Best for Microsoft devs", "Cleanest API/console design"],
+          ["Compliance certifications", "Most mature (20 yrs)", "Strong enterprise certs", "Catching up"],
+          ["Multi-cloud mgmt", "AWS Control Tower", "Azure Arc (strongest)", "Google Cloud Anthos"],
+        ],
       },
       {
         type: "subheading",

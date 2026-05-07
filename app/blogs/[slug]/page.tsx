@@ -238,6 +238,48 @@ export default async function BlogDetailPage({ params }: Props) {
                     </ul>
                   );
 
+                case "table":
+                  return (
+                    <div key={i} className="my-8 overflow-x-auto rounded-2xl border border-[rgba(255,255,255,0.07)]">
+                      {block.caption && (
+                        <p className="px-6 pt-5 pb-2 text-[0.75rem] font-semibold uppercase tracking-[0.1em] text-[#a78bfa]">
+                          {block.caption}
+                        </p>
+                      )}
+                      <table className="w-full text-[0.88rem] border-collapse">
+                        <thead>
+                          <tr className="border-b border-[rgba(255,255,255,0.07)] bg-[rgba(124,91,245,0.06)]">
+                            {block.headers.map((h, j) => (
+                              <th
+                                key={j}
+                                className="px-5 py-3.5 text-left font-syne font-bold text-[0.8rem] text-[#a78bfa] tracking-[0.04em] uppercase whitespace-nowrap"
+                              >
+                                {h}
+                              </th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {block.rows.map((row, ri) => (
+                            <tr
+                              key={ri}
+                              className="border-b border-[rgba(255,255,255,0.04)] transition-colors duration-150 hover:bg-[rgba(124,91,245,0.04)] last:border-0"
+                            >
+                              {row.map((cell, ci) => (
+                                <td
+                                  key={ci}
+                                  className={`px-5 py-3.5 leading-[1.6] ${ci === 0 ? "font-semibold text-[#f5f2eb]" : "text-[#c4bfb8]"}`}
+                                >
+                                  {cell}
+                                </td>
+                              ))}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  );
+
                 default:
                   return null;
               }
