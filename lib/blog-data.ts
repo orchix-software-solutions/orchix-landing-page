@@ -26,6 +26,226 @@ export type BlogBlock =
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "aws-vs-azure-vs-google-cloud",
+    title: "AWS vs Azure vs Google Cloud in 2025: We Compared All Three So You Don't Have To Pick the Wrong One",
+    excerpt:
+      "AWS holds 30% market share, Azure 20%, Google Cloud 13% — but market share won't tell you which cloud is right for your product. We break down pricing, AI services, and when to choose each one.",
+    coverImage: "/blog-aws-vs-azure-vs-google-cloud.png",
+    date: "2026-05-07",
+    readTime: "9 min read",
+    metaDescription:
+      "AWS holds 30% market share, Azure 20%, Google Cloud 13% — but market share won't tell you which cloud is right for your product. We break down pricing, AI services, and when to choose each one.",
+    author: {
+      name: "Parit Bhardwaj",
+      role: "Founder & Lead Engineer",
+      avatar: "/parit-bhardwaj-orchix-founder.jpg",
+    },
+    tags: ["Cloud & AWS", "Infrastructure", "Engineering"],
+    content: [
+      {
+        type: "paragraph",
+        text: "Every comparison article eventually says 'it depends on your use case' and leaves you no better off than when you started. This one won't do that. Yes, the right cloud depends on context — but the contexts aren't that complicated. By the end of this post, you'll know exactly which of the three makes sense for your situation, based on what your product actually does, what stack you're already running, and what 'good' looks like for your specific workload.",
+      },
+      {
+        type: "heading",
+        text: "The State of the Cloud Market in 2025",
+      },
+      {
+        type: "paragraph",
+        text: "The cloud infrastructure market hit $99 billion in Q2 2025 alone — a 25% year-over-year jump that added more than $20 billion in a single quarter. Full-year 2025 revenues are on track to exceed $400 billion for the first time. Three companies control most of it.",
+      },
+      {
+        type: "list",
+        items: [
+          "AWS: ~30% market share — still the undisputed leader, generating approximately $115 billion in FY2025.",
+          "Microsoft Azure: ~20% market share — growing faster than AWS in percentage terms, ~$100 billion in FY2025.",
+          "Google Cloud: ~13% market share — fastest-growing of the three at 32% YoY growth, ~$48 billion in FY2025.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Multi-cloud adoption hit 89% among enterprises in 2025, up from 76% in 2024. Most large organisations aren't choosing one provider — they're choosing which workloads go where.",
+      },
+      {
+        type: "heading",
+        text: "AWS: The One That Was There First and Still Hasn't Been Caught",
+      },
+      {
+        type: "paragraph",
+        text: "AWS launched in 2006. By the time Azure and Google Cloud became serious competitors, AWS had a decade of operational experience, a global infrastructure footprint, and a customer base that made switching painful. That lead hasn't disappeared.",
+      },
+      {
+        type: "subheading",
+        text: "The honest case for AWS",
+      },
+      {
+        type: "paragraph",
+        text: "AWS has more than 200 services. That's not a marketing number — it's a practical reality that matters when you need something specific. The ecosystem is genuinely unmatched: the AWS Partner Network, third-party tooling, the volume of Stack Overflow answers, the number of engineers who already know it. AWS also leads in global infrastructure — more regions, more availability zones, more edge locations than either competitor.",
+      },
+      {
+        type: "subheading",
+        text: "AWS pricing in 2025",
+      },
+      {
+        type: "paragraph",
+        text: "Reserved Instances offer up to 72% savings over on-demand rates. Spot Instances go up to 90% off for interruptible workloads. Lambda charges in 1ms increments.",
+      },
+      {
+        type: "subheading",
+        text: "The honest case against AWS",
+      },
+      {
+        type: "paragraph",
+        text: "AWS is complex. Egress costs — what you pay to move data out of AWS — are high and historically opaque. The sheer number of services also creates a different problem: for any given task, there are often three AWS services that could solve it, with overlapping features and different pricing models.",
+      },
+      {
+        type: "quote",
+        text: "Build on AWS if you need the broadest possible service catalog, the largest talent pool, and a proven platform for diverse enterprise workloads.",
+      },
+      {
+        type: "heading",
+        text: "Microsoft Azure: The Enterprise Cloud That Grew Up Around Office 365",
+      },
+      {
+        type: "paragraph",
+        text: "Azure launched in 2010, but it didn't start gaining real enterprise traction until Microsoft started bundling it with its existing enterprise relationships. If your company already pays Microsoft for Windows Server, SQL Server, Active Directory, or Office 365, Azure becomes very attractive very quickly.",
+      },
+      {
+        type: "subheading",
+        text: "The honest case for Azure",
+      },
+      {
+        type: "paragraph",
+        text: "If your organisation runs on Microsoft products, Azure integration is genuinely seamless. Azure's hybrid cloud story is also the strongest of the three — Azure Arc lets you manage on-premises infrastructure, other clouds, and Azure resources from a single control plane. On AI, Azure's exclusive partnership with OpenAI is a significant differentiator: Azure AI Studio is the primary deployment platform for GPT-4o and related models.",
+      },
+      {
+        type: "subheading",
+        text: "Azure pricing in 2025",
+      },
+      {
+        type: "paragraph",
+        text: "Azure eliminated charges for inbound data transfers in 2025 and cut egress costs by 10%. Spot Instances offer up to 80% off on-demand rates. For Arm-based compute, Azure offers the largest pricing gap between x86 and Arm CPUs — 65% on On-Demand and 69% on Spot.",
+      },
+      {
+        type: "subheading",
+        text: "The honest case against Azure",
+      },
+      {
+        type: "paragraph",
+        text: "Azure's interface is less intuitive than AWS or GCP for engineers who haven't grown up on Microsoft tooling. The service naming conventions are inconsistent — a legacy of Azure absorbing multiple Microsoft product lines rather than being designed from scratch.",
+      },
+      {
+        type: "quote",
+        text: "Build on Azure if your organisation is already deep in the Microsoft ecosystem, you need strong hybrid cloud, or your AI strategy is built around OpenAI models.",
+      },
+      {
+        type: "heading",
+        text: "Google Cloud: The One That's Winning on AI and Willing to Cut Prices to Win Everywhere Else",
+      },
+      {
+        type: "paragraph",
+        text: "Google Cloud is the youngest of the three — built on the same infrastructure that powers Google Search, YouTube, and Gmail. Google Cloud is the fastest-growing of the three because it's winning on two specific dimensions: AI infrastructure and pricing.",
+      },
+      {
+        type: "subheading",
+        text: "The honest case for Google Cloud",
+      },
+      {
+        type: "paragraph",
+        text: "Google Cloud's Tensor Processing Units (TPUs) are purpose-built for training and running large language models. The latest TPU v5p is one of the most powerful AI accelerators available. Vertex AI is a genuinely strong ML platform. Gemini multimodal models are natively integrated. GenAI-specific cloud services grew 160% in Q2 2025 — a significant portion of that growth landed on Google Cloud.",
+      },
+      {
+        type: "subheading",
+        text: "Google Cloud pricing in 2025",
+      },
+      {
+        type: "paragraph",
+        text: "Sustained Usage Discounts apply automatically — no commitment required — giving up to 30% savings on instances that run most of the month. BigQuery reserved pricing dropped by up to 40% on some workloads. GCP cut compute pricing by 8% across all regions in Q1 2026. For AI workloads specifically, GCP runs 5–10% cheaper than AWS and Azure.",
+      },
+      {
+        type: "subheading",
+        text: "The honest case against Google Cloud",
+      },
+      {
+        type: "paragraph",
+        text: "Google Cloud still has a smaller enterprise footprint than AWS or Azure. Fewer enterprise support options, fewer certified compliance frameworks, and a history of discontinuing products that makes some enterprise buyers nervous about long-term commitments.",
+      },
+      {
+        type: "quote",
+        text: "Build on Google Cloud if your workloads are AI/ML-heavy, you're doing serious data analytics with BigQuery, or you're building container-native architecture on Kubernetes.",
+      },
+      {
+        type: "heading",
+        text: "The Direct Comparison: What Actually Matters",
+      },
+      {
+        type: "subheading",
+        text: "AI & Machine Learning",
+      },
+      {
+        type: "list",
+        items: [
+          "AWS — Amazon Bedrock for foundation model access, SageMaker for full ML pipelines, custom Trainium and Inferentia chips. Broad model selection, strong tooling.",
+          "Azure — Exclusive OpenAI partnership makes it the primary home for GPT-4o. Azure AI Studio, Copilot integration across Microsoft 365. Best if your AI strategy centres on OpenAI models.",
+          "Google Cloud — TPU v5p for model training, Vertex AI for ML pipelines, Gemini natively integrated. Best raw infrastructure for training large models; most cost-effective for AI inference at scale.",
+        ],
+      },
+      {
+        type: "subheading",
+        text: "Hybrid Cloud",
+      },
+      {
+        type: "paragraph",
+        text: "Azure wins this clearly. Azure Arc provides the broadest multi-cloud management capabilities. Enterprises running a mix of on-premises and cloud workloads — which is most large enterprises — find Azure's hybrid story more credible and more complete than AWS Outposts or Google Cloud's Anthos.",
+      },
+      {
+        type: "subheading",
+        text: "Developer Experience",
+      },
+      {
+        type: "list",
+        items: [
+          "AWS — Largest knowledge base, most third-party tooling, highest chance that your specific problem has a documented solution.",
+          "GCP — Cleanest console and API design, strongest Kubernetes experience, preferred by developers coming from open-source backgrounds.",
+          "Azure — Most intuitive for engineers with Microsoft backgrounds, less intuitive for everyone else.",
+        ],
+      },
+      {
+        type: "heading",
+        text: "The Decision Framework",
+      },
+      {
+        type: "paragraph",
+        text: "Stop trying to find the 'best' cloud provider. There isn't one. Here's how to actually choose:",
+      },
+      {
+        type: "list",
+        items: [
+          "Choose AWS if you need the widest service catalog, the largest talent pool, and a proven platform for diverse enterprise workloads.",
+          "Choose Azure if your organisation runs on Microsoft products, you need strong hybrid cloud, or your AI strategy is built around OpenAI models.",
+          "Choose Google Cloud if you're building AI-heavy products, running serious data analytics, working container-native on Kubernetes, or pricing is a primary constraint.",
+          "Consider multi-cloud if you're an enterprise with diverse workloads — 89% of enterprises already are.",
+        ],
+      },
+      {
+        type: "heading",
+        text: "One Last Thing: Cloud Lock-In Is Real",
+      },
+      {
+        type: "paragraph",
+        text: "The comparison above assumes you're making a fresh choice. If you're evaluating a migration, the calculus changes. Cloud migrations are expensive, time-consuming, and disruptive. The technical differences between AWS, Azure, and GCP are real, but they're rarely large enough to justify a full migration unless there's a compelling business reason.",
+      },
+      {
+        type: "paragraph",
+        text: "If you're starting fresh: pick based on the framework above and build with portability in mind from day one — containerise workloads, avoid provider-specific services where open alternatives exist, and keep your data layer as provider-agnostic as possible.",
+      },
+      {
+        type: "quote",
+        text: "If you're migrating: make sure the expected benefit exceeds the migration cost — not just on paper, but with a realistic estimate of engineering time, downtime risk, and retraining.",
+      },
+    ],
+  },
+  {
     slug: "why-zoho-monday-airtable-keep-failing-your-growing-business",
     title: "Why Zoho, Monday, and Airtable Keep Failing Your Growing Business (And What to Build Instead)",
     excerpt:
