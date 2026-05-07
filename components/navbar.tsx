@@ -46,6 +46,19 @@ const serviceNavItems = [
   },
 ];
 
+const industryHrefs = [
+  "/industries/fintech",
+  "/industries",
+  "/industries",
+  "/industries",
+  "/industries",
+  "/industries",
+  "/industries",
+  "/industries",
+  "/industries",
+  "/industries",
+];
+
 const industryIcons = [
   <path key="fintech" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />,
   <path key="health" d="M22 12h-4l-3 9L9 3l-3 9H2" />,
@@ -197,7 +210,7 @@ export default function Navbar() {
               {n.industries_items.map((item, idx) => (
                 <Link
                   key={item.title}
-                  href="/industries"
+                  href={industryHrefs[idx] ?? "/industries"}
                   className="bg-[rgba(10,10,10,0.9)] p-[1.2rem] flex items-start gap-3 cursor-pointer transition-all duration-300 no-underline hover:bg-[rgba(124,91,245,0.06)] group/item"
                 >
                   <div className="w-9 h-9 min-w-[36px] rounded-lg flex items-center justify-center bg-[rgba(124,91,245,0.08)] border border-[rgba(124,91,245,0.12)] transition-all duration-300 group-hover/item:bg-[rgba(124,91,245,0.15)] group-hover/item:border-[rgba(124,91,245,0.25)]">
@@ -343,7 +356,7 @@ export default function Navbar() {
           <div className={`overflow-hidden transition-all duration-300 ${industriesOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"}`}>
             <div className="pl-3 pr-1 py-1 space-y-0.5">
               {n.industries_items.map((item, idx) => (
-                <Link key={item.title} href="/industries" className="flex items-center gap-2.5 py-2.5 px-3 rounded-lg text-[0.75rem] text-[#8a8680] hover:text-[#f5f2eb] hover:bg-[rgba(124,91,245,0.06)] transition-all duration-200 no-underline" onClick={() => setMobileOpen(false)}>
+                <Link key={item.title} href={industryHrefs[idx] ?? "/industries"} className="flex items-center gap-2.5 py-2.5 px-3 rounded-lg text-[0.75rem] text-[#8a8680] hover:text-[#f5f2eb] hover:bg-[rgba(124,91,245,0.06)] transition-all duration-200 no-underline" onClick={() => setMobileOpen(false)}>
                   <div className="w-7 h-7 min-w-[28px] rounded-md flex items-center justify-center bg-[rgba(124,91,245,0.1)] border border-[rgba(124,91,245,0.15)]">
                     <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="none" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">{industryIcons[idx]}</svg>
                   </div>
