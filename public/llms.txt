@@ -47,6 +47,17 @@ URL: https://orchixsoftwaresolutions.com/services/software-maintenance-support
 - Industries: https://orchixsoftwaresolutions.com/industries
 - Blog: https://orchixsoftwaresolutions.com/blogs
 
+## US Location Pages
+
+OrchiX serves clients across the United States. Dedicated pages for each city:
+
+- Custom software development New York: https://orchixsoftwaresolutions.com/locations/custom-software-development-new-york
+- Custom software development San Francisco: https://orchixsoftwaresolutions.com/locations/custom-software-development-san-francisco
+- Custom software development Austin: https://orchixsoftwaresolutions.com/locations/custom-software-development-austin
+- Software development agency Chicago: https://orchixsoftwaresolutions.com/locations/custom-software-development-chicago
+- Software development company Los Angeles: https://orchixsoftwaresolutions.com/locations/custom-software-development-los-angeles
+- Custom software development Seattle: https://orchixsoftwaresolutions.com/locations/custom-software-development-seattle
+
 ## Contact
 
 - Email: hey@orchixsoftwaresolutions.com
@@ -78,5 +89,6 @@ Launch offer: 10% off all projects
 
 ## Location
 
-India — remote-first, serving clients in 12+ countries worldwide.
+India — remote-first, serving clients across the US, UK, and 12+ countries worldwide.
+Primary US markets: New York, San Francisco, Austin, Chicago, Los Angeles, Seattle.
 Registered as: OrchiX Software Solutions Pvt. Ltd.
