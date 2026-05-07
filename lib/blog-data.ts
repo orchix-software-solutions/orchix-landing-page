@@ -181,16 +181,6 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "table",
-        caption: "Market Share & Maturity (2025)",
-        headers: ["Provider", "Market Share", "Annual Revenue (FY2025)", "YoY Growth"],
-        rows: [
-          ["AWS", "~30%", "~$115B", "~17%"],
-          ["Microsoft Azure", "~20%", "~$100B", "~21%"],
-          ["Google Cloud", "~13%", "~$48B", "~32%"],
-        ],
-      },
-      {
-        type: "table",
         caption: "Compute Cost Comparison (on-demand, general purpose)",
         headers: ["Cost Type", "AWS", "Azure", "Google Cloud"],
         rows: [
