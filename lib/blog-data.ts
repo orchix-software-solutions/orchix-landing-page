@@ -31,7 +31,7 @@ export const blogPosts: BlogPost[] = [
     title: "AWS vs Azure vs Google Cloud in 2025: We Compared All Three So You Don't Have To Pick the Wrong One",
     excerpt:
       "AWS holds 30% market share, Azure 20%, Google Cloud 13% — but market share won't tell you which cloud is right for your product. We break down pricing, AI services, and when to choose each one.",
-    coverImage: "/blog-aws-vs-azure-vs-google-cloud.png",
+    coverImage: "/blog-aws-vs-azure-vs-google-cloud-v2.png",
     date: "2026-05-07",
     readTime: "9 min read",
     metaDescription:
