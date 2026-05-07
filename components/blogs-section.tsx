@@ -116,7 +116,10 @@ export default function BlogsSection() {
                         sizes="24px"
                       />
                     </div>
-                    <span className="text-[0.68rem] text-[#f5f2eb] font-medium">{post.author.name}</span>
+                    <div className="flex flex-col">
+                      <span className="text-[0.68rem] text-[#f5f2eb] font-medium leading-tight">{post.author.name}</span>
+                      <span className="text-[0.6rem] text-[#8a8680] leading-tight">{post.author.role}</span>
+                    </div>
                     <span className="text-[#8a8680]/40">·</span>
                     <span className="text-[0.68rem] text-[#8a8680]">{formatDate(post.date)}</span>
                   </div>
