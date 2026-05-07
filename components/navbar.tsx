@@ -123,7 +123,8 @@ export default function Navbar() {
           alt="OrchiX Software Solutions"
           width={140}
           height={40}
-          className="h-10 w-auto object-contain brightness-110"
+          className="object-contain brightness-110"
+          style={{ height: "40px", width: "auto" }}
           priority
         />
       </Link>
