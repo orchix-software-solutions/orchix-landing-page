@@ -7,7 +7,7 @@ import { LanguageProvider } from "@/lib/language-context";
 import CustomCursor from "@/components/custom-cursor";
 import JsonLd from "@/components/json-ld";
 import SiteShell from "@/components/site-shell";
-import { organizationSchema, websiteSchema, founderPersonSchema } from "@/lib/schema";
+import { organizationSchema, websiteSchema, founderPersonSchema, localBusinessSchema } from "@/lib/schema";
 
 const dmSerifDisplay = DM_Serif_Display({
   variable: "--font-dm-serif-var",
@@ -128,6 +128,7 @@ export default function RootLayout({
         <JsonLd schema={organizationSchema as Record<string, unknown>} />
         <JsonLd schema={websiteSchema as Record<string, unknown>} />
         <JsonLd schema={founderPersonSchema as Record<string, unknown>} />
+        <JsonLd schema={localBusinessSchema as Record<string, unknown>} />
       </head>
       <body
         className={`${dmSerifDisplay.variable} ${syne.variable} ${spaceGrotesk.variable} ${playfairDisplay.variable} ${cairo.variable} ${dancingScript.variable} ${plusJakartaSans.variable} overflow-x-hidden antialiased`}

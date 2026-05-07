@@ -132,6 +132,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.85,
     },
+    {
+      url: `${base}/locations/custom-software-development-boston`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
+    },
+    {
+      url: `${base}/locations/custom-software-development-dallas`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
+    },
+    {
+      url: `${base}/locations/custom-software-development-miami`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
+    },
+    {
+      url: `${base}/locations/custom-software-development-denver`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
+    },
   ];
 
   return [...staticRoutes, ...locationRoutes, ...caseStudyRoutes, ...blogRoutes];

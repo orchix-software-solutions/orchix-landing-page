@@ -57,6 +57,10 @@ OrchiX serves clients across the United States. Dedicated pages for each city:
 - Software development agency Chicago: https://orchixsoftwaresolutions.com/locations/custom-software-development-chicago
 - Software development company Los Angeles: https://orchixsoftwaresolutions.com/locations/custom-software-development-los-angeles
 - Custom software development Seattle: https://orchixsoftwaresolutions.com/locations/custom-software-development-seattle
+- Custom software development Boston: https://orchixsoftwaresolutions.com/locations/custom-software-development-boston
+- Custom software development Dallas: https://orchixsoftwaresolutions.com/locations/custom-software-development-dallas
+- Custom software development Miami: https://orchixsoftwaresolutions.com/locations/custom-software-development-miami
+- Custom software development Denver: https://orchixsoftwaresolutions.com/locations/custom-software-development-denver
 
 ## Contact
 
@@ -90,5 +94,5 @@ Launch offer: 10% off all projects
 ## Location
 
 India — remote-first, serving clients across the US, UK, and 12+ countries worldwide.
-Primary US markets: New York, San Francisco, Austin, Chicago, Los Angeles, Seattle.
+Primary US markets: New York, San Francisco, Austin, Chicago, Los Angeles, Seattle, Boston, Dallas, Miami, Denver.
 Registered as: OrchiX Software Solutions Pvt. Ltd.

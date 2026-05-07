@@ -318,7 +318,60 @@ export function blogPostSchema({
   };
 }
 
-// ─── 7. Individual Service pages (call per service) ──────────────────────────
+// ─── 7. LocalBusiness ────────────────────────────────────────────────────────
+export const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://orchixsoftwaresolutions.com/#local-business",
+  name: "OrchiX Software Solutions",
+  alternateName: "OrchiX",
+  description:
+    "Custom CRM, ERP, SaaS & AI software development agency — remote-first, serving clients across the US, UK, and 12+ countries worldwide.",
+  url: "https://orchixsoftwaresolutions.com",
+  telephone: "+91-000-000-0000",
+  email: "hey@orchixsoftwaresolutions.com",
+  logo: "https://orchixsoftwaresolutions.com/logo.png",
+  image: "https://orchixsoftwaresolutions.com/orchix-og-image.png",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "India",
+    addressCountry: "IN",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 20.5937,
+    longitude: 78.9629,
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "18:00",
+    },
+  ],
+  priceRange: "$$",
+  currenciesAccepted: "USD, GBP, EUR, INR",
+  paymentAccepted: "Bank Transfer, Credit Card",
+  areaServed: [
+    { "@type": "Country", name: "United States" },
+    { "@type": "Country", name: "United Kingdom" },
+    { "@type": "Country", name: "Canada" },
+    { "@type": "Country", name: "Australia" },
+    { "@type": "Country", name: "India" },
+  ],
+  sameAs: [
+    "https://www.linkedin.com/company/orchix-software-solutions",
+    "https://x.com/orchixsoftwares",
+    "https://github.com/orchix-software-solutions",
+    "https://www.instagram.com/orchixsoftwaresolutions",
+  ],
+  parentOrganization: {
+    "@id": "https://orchixsoftwaresolutions.com/#organization",
+  },
+};
+
+// ─── 8. Individual Service pages (call per service) ──────────────────────────
 export function servicePageSchema({
   name,
   description,
