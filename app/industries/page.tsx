@@ -113,7 +113,7 @@ export default function IndustriesPage() {
       <JsonLd schema={industriesSchema} />
 
       {/* Hero */}
-      <section className="max-w-[1200px] mx-auto px-6 pt-32 pb-14">
+      <section className="max-w-[1200px] mx-auto px-6 pt-44 pb-14">
         <h1
           className="font-syne font-extrabold tracking-[-0.04em] leading-[1.1] text-[#f5f2eb] mb-5 max-w-[700px]"
           style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)" }}
