@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Serif_Display, Syne, Space_Grotesk, Playfair_Display, Cairo, Dancing_Script, Plus_Jakarta_Sans } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { LanguageProvider } from "@/lib/language-context";
 import CustomCursor from "@/components/custom-cursor";
@@ -138,6 +139,7 @@ export default function RootLayout({
           <CustomCursor />
         </LanguageProvider>
       </body>
+      <GoogleAnalytics gaId="G-BVWY5HX3RK" />
     </html>
   );
 }
