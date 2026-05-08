@@ -293,7 +293,7 @@ export default function Navbar({ showAnnouncementBar = true }: { showAnnouncemen
 
       {/* Right side — language + CTA + Hamburger */}
       <div className="flex items-center gap-3">
-        <LanguagePicker />
+        {/* <LanguagePicker /> */}
 
         {/* CTA Button — desktop only */}
         <button
@@ -416,16 +416,6 @@ export default function Navbar({ showAnnouncementBar = true }: { showAnnouncemen
               {n.blog}
             </Link>
 
-            {/* Let's Talk CTA */}
-            <div className="pt-3 pb-1">
-              <button
-                className={`${isRTL ? "font-cairo" : ""} w-full flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-[#7c5bf5] text-white text-[0.85rem] font-semibold tracking-[0.06em] uppercase cursor-pointer transition-all duration-300 hover:bg-[#6b4ce0] shadow-[0_4px_20px_rgba(124,91,245,0.35)]`}
-                onClick={() => { setMobileOpen(false); setTimeout(openDialog, 350); }}
-              >
-                {n.cta}
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-              </button>
-            </div>
           </div>
 
           {/* Mobile CTA at bottom */}
