@@ -93,7 +93,7 @@ const industryIcons = [
   </>,
 ];
 
-export default function Navbar() {
+export default function Navbar({ showAnnouncementBar = true }: { showAnnouncementBar?: boolean }) {
   const { t, isRTL } = useLanguage();
   const { openDialog } = useBooking();
   const n = t.nav;
@@ -113,7 +113,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className="fixed top-9 left-0 w-full z-[100] px-[3rem] py-5 flex items-center justify-between backdrop-blur-[20px] bg-[rgba(10,10,10,0.6)] border-b border-[rgba(255,255,255,0.08)] transition-all duration-400 max-[1100px]:px-6 max-[1100px]:py-4 max-sm:top-[1.75rem]"
+      className={`fixed left-0 w-full z-[100] px-[3rem] py-5 flex items-center justify-between backdrop-blur-[20px] bg-[rgba(10,10,10,0.6)] border-b border-[rgba(255,255,255,0.08)] transition-all duration-400 max-[1100px]:px-6 max-[1100px]:py-4 ${showAnnouncementBar ? "top-9 max-sm:top-[1.75rem]" : "top-0"}`}
       dir={isRTL ? "rtl" : "ltr"}
     >
       {/* Logo */}
@@ -299,13 +299,13 @@ export default function Navbar() {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 top-0 z-[99] bg-[rgba(0,0,0,0.6)] backdrop-blur-sm transition-opacity duration-300 hidden max-[600px]:block ${mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+        className={`fixed inset-0 top-0 z-[205] bg-[rgba(0,0,0,0.6)] backdrop-blur-sm transition-opacity duration-300 hidden max-[600px]:block ${mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
         onClick={() => setMobileOpen(false)}
       />
 
       {/* Mobile Menu Panel */}
       <div
-        className={`fixed top-0 ${isRTL ? "left-0" : "right-0"} z-[101] h-full w-[80vw] max-w-[320px] bg-[rgba(12,12,12,0.98)] backdrop-blur-[30px] border-l border-[rgba(255,255,255,0.08)] shadow-[-10px_0_40px_rgba(0,0,0,0.5)] transition-transform duration-[400ms] ease-[cubic-bezier(0.4,0,0.2,1)] hidden max-[600px]:block ${mobileOpen ? "translate-x-0" : (isRTL ? "-translate-x-full" : "translate-x-full")}`}
+        className={`fixed top-0 ${isRTL ? "left-0" : "right-0"} z-[210] h-full w-[80vw] max-w-[320px] bg-[rgba(12,12,12,0.98)] backdrop-blur-[30px] border-l border-[rgba(255,255,255,0.08)] shadow-[-10px_0_40px_rgba(0,0,0,0.5)] transition-transform duration-[400ms] ease-[cubic-bezier(0.4,0,0.2,1)] hidden max-[600px]:block ${mobileOpen ? "translate-x-0" : (isRTL ? "-translate-x-full" : "translate-x-full")}`}
         dir={isRTL ? "rtl" : "ltr"}
       >
         {/* Purple accent line at top */}

@@ -2,7 +2,11 @@
 
 import { useLanguage } from "@/lib/language-context";
 
-export default function UrgencyBar() {
+interface UrgencyBarProps {
+  onDismiss: () => void;
+}
+
+export default function UrgencyBar({ onDismiss }: UrgencyBarProps) {
   const { t, isRTL } = useLanguage();
 
   return (
@@ -26,6 +30,17 @@ export default function UrgencyBar() {
       >
         <path d="M5 12h14M12 5l7 7-7 7" />
       </svg>
+
+      {/* Dismiss button */}
+      <button
+        onClick={(e) => { e.stopPropagation(); onDismiss(); }}
+        aria-label="Dismiss announcement"
+        className={`absolute ${isRTL ? "left-3" : "right-3"} flex items-center justify-center w-5 h-5 rounded-full opacity-70 hover:opacity-100 transition-opacity focus:outline-none`}
+      >
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true">
+          <path d="M18 6L6 18M6 6l12 12" />
+        </svg>
+      </button>
     </div>
   );
 }
