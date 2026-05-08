@@ -155,8 +155,7 @@ export default function Navbar({ showAnnouncementBar = true }: { showAnnouncemen
           alt="OrchiX Software Solutions"
           width={140}
           height={40}
-          className="object-contain brightness-110"
-          style={{ height: "40px", width: "auto" }}
+          className="h-10 w-auto object-contain brightness-110"
           priority
         />
       </Link>
