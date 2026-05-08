@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import Link from "next/link";
 import LanguagePicker from "@/components/language-picker";
@@ -100,18 +101,36 @@ export default function Navbar({ showAnnouncementBar = true }: { showAnnouncemen
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [industriesOpen, setIndustriesOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-  // Prevent body scroll when mobile menu is open
+  useEffect(() => { setMounted(true); }, []);
+
+  // Prevent body scroll when mobile menu is open (including iOS)
   useEffect(() => {
     if (mobileOpen) {
+      const scrollY = window.scrollY;
       document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = "100%";
     } else {
+      const top = document.body.style.top;
       document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      if (top) window.scrollTo(0, -parseInt(top, 10));
     }
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+    };
   }, [mobileOpen]);
 
   return (
+    <>
     <nav
       className={`fixed left-0 w-full z-[100] px-[3rem] py-5 flex items-center justify-between backdrop-blur-[20px] bg-[rgba(10,10,10,0.6)] border-b border-[rgba(255,255,255,0.08)] transition-all duration-400 max-[1100px]:px-6 max-[1100px]:py-4 ${showAnnouncementBar ? "top-9 max-sm:top-[2.75rem]" : "top-0"}`}
       dir={isRTL ? "rtl" : "ltr"}
@@ -297,99 +316,118 @@ export default function Navbar({ showAnnouncementBar = true }: { showAnnouncemen
         </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
-      <div
-        className={`fixed inset-0 top-0 z-[99] bg-[rgba(0,0,0,0.6)] backdrop-blur-sm transition-opacity duration-300 hidden max-[600px]:block ${mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
-        onClick={() => setMobileOpen(false)}
-      />
-
-      {/* Mobile Menu Panel */}
-      <div
-        className={`fixed top-0 ${isRTL ? "left-0" : "right-0"} z-[101] h-full w-[80vw] max-w-[320px] bg-[rgba(12,12,12,0.98)] backdrop-blur-[30px] border-l border-[rgba(255,255,255,0.08)] shadow-[-10px_0_40px_rgba(0,0,0,0.5)] transition-transform duration-[400ms] ease-[cubic-bezier(0.4,0,0.2,1)] hidden max-[600px]:block ${mobileOpen ? "translate-x-0" : (isRTL ? "-translate-x-full" : "translate-x-full")}`}
-        dir={isRTL ? "rtl" : "ltr"}
-      >
-        {/* Purple accent line at top */}
-        <div className="h-[2px] w-full" style={{ background: "linear-gradient(90deg, #7c5bf5, #a78bfa, #7c5bf5)" }} />
-
-        {/* Close + branding */}
-        <div className="flex items-center justify-between px-5 py-4 border-b border-[rgba(255,255,255,0.06)]">
-          <span className={`text-[0.7rem] uppercase tracking-[0.15em] text-[#8a8680] font-semibold ${isRTL ? "font-cairo" : ""}`}>Menu</span>
-          <button
-            onClick={() => setMobileOpen(false)}
-            className="w-8 h-8 rounded-lg flex items-center justify-center border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.04)] hover:bg-[rgba(124,91,245,0.12)] transition-all duration-200"
-            aria-label="Close menu"
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2" strokeLinecap="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
-          </button>
-        </div>
-
-        {/* Mobile nav items */}
-        <div className="overflow-y-auto h-[calc(100%-8rem)] px-5 py-4 space-y-1">
-          {/* Services accordion */}
-          <button
-            onClick={() => setServicesOpen(!servicesOpen)}
-            className={`w-full flex items-center justify-between py-3 px-3 rounded-xl text-[0.85rem] font-semibold uppercase tracking-[0.05em] transition-all duration-200 ${servicesOpen ? "text-[#a78bfa] bg-[rgba(124,91,245,0.08)]" : "text-[#f5f2eb] hover:bg-[rgba(255,255,255,0.04)]"} ${isRTL ? "font-cairo" : ""}`}
-          >
-            {n.services}
-            <svg className={`w-4 h-4 stroke-current transition-transform duration-300 ${servicesOpen ? "rotate-180" : ""}`} viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round"><path d="M6 9l6 6 6-6" /></svg>
-          </button>
-          <div className={`overflow-hidden transition-all duration-300 ${servicesOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"}`}>
-            <div className="pl-3 pr-1 py-1 space-y-0.5">
-              {serviceNavItems.map((item) => (
-                <Link key={item.title} href={item.href} className="flex items-center gap-2.5 py-2.5 px-3 rounded-lg text-[0.75rem] text-[#8a8680] hover:text-[#f5f2eb] hover:bg-[rgba(124,91,245,0.06)] transition-all duration-200 no-underline" onClick={() => setMobileOpen(false)}>
-                  <div className="w-7 h-7 min-w-[28px] rounded-md flex items-center justify-center bg-[rgba(124,91,245,0.1)] border border-[rgba(124,91,245,0.15)]">
-                    <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="none" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">{item.icon}</svg>
-                  </div>
-                  {item.title}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Industries accordion */}
-          <button
-            onClick={() => setIndustriesOpen(!industriesOpen)}
-            className={`w-full flex items-center justify-between py-3 px-3 rounded-xl text-[0.85rem] font-semibold uppercase tracking-[0.05em] transition-all duration-200 ${industriesOpen ? "text-[#a78bfa] bg-[rgba(124,91,245,0.08)]" : "text-[#f5f2eb] hover:bg-[rgba(255,255,255,0.04)]"} ${isRTL ? "font-cairo" : ""}`}
-          >
-            {n.industries}
-            <svg className={`w-4 h-4 stroke-current transition-transform duration-300 ${industriesOpen ? "rotate-180" : ""}`} viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round"><path d="M6 9l6 6 6-6" /></svg>
-          </button>
-          <div className={`overflow-hidden transition-all duration-300 ${industriesOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"}`}>
-            <div className="pl-3 pr-1 py-1 space-y-0.5">
-              {n.industries_items.map((item, idx) => (
-                <Link key={item.title} href={industryHrefs[idx] ?? "/industries"} className="flex items-center gap-2.5 py-2.5 px-3 rounded-lg text-[0.75rem] text-[#8a8680] hover:text-[#f5f2eb] hover:bg-[rgba(124,91,245,0.06)] transition-all duration-200 no-underline" onClick={() => setMobileOpen(false)}>
-                  <div className="w-7 h-7 min-w-[28px] rounded-md flex items-center justify-center bg-[rgba(124,91,245,0.1)] border border-[rgba(124,91,245,0.15)]">
-                    <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="none" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">{industryIcons[idx]}</svg>
-                  </div>
-                  {item.title}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Simple links */}
-          <Link href="/about" className={`block py-3 px-3 rounded-xl text-[0.85rem] font-semibold uppercase tracking-[0.05em] text-[#f5f2eb] hover:bg-[rgba(255,255,255,0.04)] transition-all duration-200 no-underline ${isRTL ? "font-cairo" : ""}`} onClick={() => setMobileOpen(false)}>
-            {n.about}
-          </Link>
-          <Link href="/contact" className={`block py-3 px-3 rounded-xl text-[0.85rem] font-semibold uppercase tracking-[0.05em] text-[#f5f2eb] hover:bg-[rgba(255,255,255,0.04)] transition-all duration-200 no-underline ${isRTL ? "font-cairo" : ""}`} onClick={() => setMobileOpen(false)}>
-            Contact
-          </Link>
-          <Link href="/blogs" className={`block py-3 px-3 rounded-xl text-[0.85rem] font-semibold uppercase tracking-[0.05em] text-[#f5f2eb] hover:bg-[rgba(255,255,255,0.04)] transition-all duration-200 no-underline ${isRTL ? "font-cairo" : ""}`} onClick={() => setMobileOpen(false)}>
-            {n.blog}
-          </Link>
-        </div>
-
-        {/* Mobile CTA at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 px-5 py-4 border-t border-[rgba(255,255,255,0.06)] bg-[rgba(12,12,12,0.95)]">
-          <button
-            className={`${isRTL ? "font-cairo" : ""} w-full flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#7c5bf5] text-white text-[0.8rem] font-semibold tracking-[0.05em] uppercase cursor-pointer transition-all duration-300 hover:bg-[#6b4ce0] shadow-[0_4px_20px_rgba(124,91,245,0.3)]`}
-            onClick={() => { setMobileOpen(false); setTimeout(openDialog, 350); }}
-          >
-            {n.cta}
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-          </button>
-        </div>
-      </div>
     </nav>
+
+    {/* Mobile overlay + panel — portalled to document.body to escape nav stacking context */}
+    {mounted && createPortal(
+      <>
+        {/* Backdrop */}
+        <div
+          className={`fixed inset-0 z-[150] bg-[rgba(0,0,0,0.6)] backdrop-blur-sm transition-opacity duration-300 sm:hidden ${mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+          onClick={() => setMobileOpen(false)}
+        />
+
+        {/* Panel */}
+        <div
+          className={`fixed top-0 ${isRTL ? "left-0" : "right-0"} z-[151] h-full w-[80vw] max-w-[320px] bg-[rgba(12,12,12,0.98)] backdrop-blur-[30px] border-l border-[rgba(255,255,255,0.08)] shadow-[-10px_0_40px_rgba(0,0,0,0.5)] transition-transform duration-[400ms] ease-[cubic-bezier(0.4,0,0.2,1)] sm:hidden ${mobileOpen ? "translate-x-0" : (isRTL ? "-translate-x-full" : "translate-x-full")}`}
+          dir={isRTL ? "rtl" : "ltr"}
+        >
+          {/* Purple accent line at top */}
+          <div className="h-[2px] w-full" style={{ background: "linear-gradient(90deg, #7c5bf5, #a78bfa, #7c5bf5)" }} />
+
+          {/* Close + branding */}
+          <div className="flex items-center justify-between px-5 py-4 border-b border-[rgba(255,255,255,0.06)]">
+            <span className={`text-[0.7rem] uppercase tracking-[0.15em] text-[#8a8680] font-semibold ${isRTL ? "font-cairo" : ""}`}>Menu</span>
+            <button
+              onClick={() => setMobileOpen(false)}
+              className="w-8 h-8 rounded-lg flex items-center justify-center border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.04)] hover:bg-[rgba(124,91,245,0.12)] transition-all duration-200"
+              aria-label="Close menu"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2" strokeLinecap="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
+            </button>
+          </div>
+
+          {/* Mobile nav items */}
+          <div className="overflow-y-auto overscroll-contain h-[calc(100%-8rem)] px-5 py-4 space-y-1">
+            {/* Services accordion */}
+            <button
+              onClick={() => setServicesOpen(!servicesOpen)}
+              className={`w-full flex items-center justify-between py-3 px-3 rounded-xl text-[0.85rem] font-semibold uppercase tracking-[0.05em] transition-all duration-200 ${servicesOpen ? "text-[#a78bfa] bg-[rgba(124,91,245,0.08)]" : "text-[#f5f2eb] hover:bg-[rgba(255,255,255,0.04)]"} ${isRTL ? "font-cairo" : ""}`}
+            >
+              {n.services}
+              <svg className={`w-4 h-4 stroke-current transition-transform duration-300 ${servicesOpen ? "rotate-180" : ""}`} viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round"><path d="M6 9l6 6 6-6" /></svg>
+            </button>
+            <div className={`overflow-hidden transition-all duration-300 ${servicesOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"}`}>
+              <div className="pl-3 pr-1 py-1 space-y-0.5">
+                {serviceNavItems.map((item) => (
+                  <Link key={item.title} href={item.href} className="flex items-center gap-2.5 py-2.5 px-3 rounded-lg text-[0.75rem] text-[#8a8680] hover:text-[#f5f2eb] hover:bg-[rgba(124,91,245,0.06)] transition-all duration-200 no-underline" onClick={() => setMobileOpen(false)}>
+                    <div className="w-7 h-7 min-w-[28px] rounded-md flex items-center justify-center bg-[rgba(124,91,245,0.1)] border border-[rgba(124,91,245,0.15)]">
+                      <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="none" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">{item.icon}</svg>
+                    </div>
+                    {item.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Industries accordion */}
+            <button
+              onClick={() => setIndustriesOpen(!industriesOpen)}
+              className={`w-full flex items-center justify-between py-3 px-3 rounded-xl text-[0.85rem] font-semibold uppercase tracking-[0.05em] transition-all duration-200 ${industriesOpen ? "text-[#a78bfa] bg-[rgba(124,91,245,0.08)]" : "text-[#f5f2eb] hover:bg-[rgba(255,255,255,0.04)]"} ${isRTL ? "font-cairo" : ""}`}
+            >
+              {n.industries}
+              <svg className={`w-4 h-4 stroke-current transition-transform duration-300 ${industriesOpen ? "rotate-180" : ""}`} viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round"><path d="M6 9l6 6 6-6" /></svg>
+            </button>
+            <div className={`overflow-hidden transition-all duration-300 ${industriesOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"}`}>
+              <div className="pl-3 pr-1 py-1 space-y-0.5">
+                {n.industries_items.map((item, idx) => (
+                  <Link key={item.title} href={industryHrefs[idx] ?? "/industries"} className="flex items-center gap-2.5 py-2.5 px-3 rounded-lg text-[0.75rem] text-[#8a8680] hover:text-[#f5f2eb] hover:bg-[rgba(124,91,245,0.06)] transition-all duration-200 no-underline" onClick={() => setMobileOpen(false)}>
+                    <div className="w-7 h-7 min-w-[28px] rounded-md flex items-center justify-center bg-[rgba(124,91,245,0.1)] border border-[rgba(124,91,245,0.15)]">
+                      <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="none" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">{industryIcons[idx]}</svg>
+                    </div>
+                    {item.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Simple links */}
+            <Link href="/about" className={`block py-3 px-3 rounded-xl text-[0.85rem] font-semibold uppercase tracking-[0.05em] text-[#f5f2eb] hover:bg-[rgba(255,255,255,0.04)] transition-all duration-200 no-underline ${isRTL ? "font-cairo" : ""}`} onClick={() => setMobileOpen(false)}>
+              {n.about}
+            </Link>
+            <Link href="/contact" className={`block py-3 px-3 rounded-xl text-[0.85rem] font-semibold uppercase tracking-[0.05em] text-[#f5f2eb] hover:bg-[rgba(255,255,255,0.04)] transition-all duration-200 no-underline ${isRTL ? "font-cairo" : ""}`} onClick={() => setMobileOpen(false)}>
+              Contact
+            </Link>
+            <Link href="/blogs" className={`block py-3 px-3 rounded-xl text-[0.85rem] font-semibold uppercase tracking-[0.05em] text-[#f5f2eb] hover:bg-[rgba(255,255,255,0.04)] transition-all duration-200 no-underline ${isRTL ? "font-cairo" : ""}`} onClick={() => setMobileOpen(false)}>
+              {n.blog}
+            </Link>
+
+            {/* Let's Talk CTA */}
+            <div className="pt-3 pb-1">
+              <button
+                className={`${isRTL ? "font-cairo" : ""} w-full flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-[#7c5bf5] text-white text-[0.85rem] font-semibold tracking-[0.06em] uppercase cursor-pointer transition-all duration-300 hover:bg-[#6b4ce0] shadow-[0_4px_20px_rgba(124,91,245,0.35)]`}
+                onClick={() => { setMobileOpen(false); setTimeout(openDialog, 350); }}
+              >
+                {n.cta}
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile CTA at bottom */}
+          <div className="absolute bottom-0 left-0 right-0 px-5 py-4 border-t border-[rgba(255,255,255,0.06)] bg-[rgba(12,12,12,0.95)]">
+            <button
+              className={`${isRTL ? "font-cairo" : ""} w-full flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#7c5bf5] text-white text-[0.8rem] font-semibold tracking-[0.05em] uppercase cursor-pointer transition-all duration-300 hover:bg-[#6b4ce0] shadow-[0_4px_20px_rgba(124,91,245,0.3)]`}
+              onClick={() => { setMobileOpen(false); setTimeout(openDialog, 350); }}
+            >
+              {n.cta}
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+            </button>
+          </div>
+        </div>
+      </>,
+      document.body
+    )}
+    </>
   );
 }
