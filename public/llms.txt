@@ -47,6 +47,26 @@ URL: https://orchixsoftwaresolutions.com/services/software-maintenance-support
 - Industries: https://orchixsoftwaresolutions.com/industries
 - Blog: https://orchixsoftwaresolutions.com/blogs
 
+## Blog Posts
+
+### Microservices vs Monolith in 2026: How to Actually Decide (Not Just Follow What Netflix Did)
+89% of organisations adopted microservices — then 42% started consolidating them back. An honest decision guide covering when to use a monolith, modular monolith, or microservices based on team size, traffic patterns, and operational maturity. Includes the Amazon Prime Video case study and a full architecture decision matrix.
+URL: https://orchixsoftwaresolutions.com/blogs/microservices-vs-monolith
+Published: 2026-05-09
+Reading time: 10 minutes
+
+### AWS vs Azure vs Google Cloud in 2025: We Compared All Three So You Don't Have To Pick the Wrong One
+AWS holds 30% market share, Azure 20%, Google Cloud 13% — but market share won't tell you which cloud is right for your product. A breakdown of pricing, AI services, and when to choose each provider.
+URL: https://orchixsoftwaresolutions.com/blogs/aws-vs-azure-vs-google-cloud
+Published: 2026-05-07
+Reading time: 9 minutes
+
+### Why Zoho, Monday, and Airtable Keep Failing Your Growing Business (And What to Build Instead)
+Why off-the-shelf SaaS tools fail past $1M in revenue, the hidden costs of patching together tools, and a practical framework for deciding whether to patch, switch, or build custom software.
+URL: https://orchixsoftwaresolutions.com/blogs/why-zoho-monday-airtable-keep-failing-your-growing-business
+Published: 2026-04-25
+Reading time: 8 minutes
+
 ## US Location Pages
 
 OrchiX serves clients across the United States. Dedicated pages for each city:

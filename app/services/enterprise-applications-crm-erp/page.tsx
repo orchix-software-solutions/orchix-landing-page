@@ -219,8 +219,17 @@ export default function CrmErpServicePage() {
             <span className="font-playfair italic font-normal text-[#a78bfa]">CRM &amp; ERP</span>{" "}
             Development Services
           </h2>
-          <p className="text-[0.9rem] text-[#8a8680] leading-[1.75] max-w-[580px] mb-12">
+          <p className="text-[0.9rem] text-[#8a8680] leading-[1.75] max-w-[580px] mb-5">
             From greenfield builds to legacy modernization — we cover the full spectrum of enterprise application development, tailored to your industry and processes.
+          </p>
+          <p className="text-[0.9rem] text-[#8a8680] leading-[1.75] max-w-[580px] mb-12">
+            Every architecture decision — monolith, modular monolith, or microservices — gets made intentionally based on your team size, traffic patterns, and operational maturity.{" "}
+            <Link
+              href="/blogs/microservices-vs-monolith"
+              className="text-[#a78bfa] underline underline-offset-2 hover:text-[#c4b5fd] transition-colors duration-200"
+            >
+              See how we think about architecture decisions →
+            </Link>
           </p>
 
           <div className="grid grid-cols-3 gap-5 max-[900px]:grid-cols-2 max-[560px]:grid-cols-1">

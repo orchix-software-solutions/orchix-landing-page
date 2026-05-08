@@ -244,8 +244,17 @@ export default function SaasProductDevelopmentPage() {
           <span className="font-playfair italic font-normal text-[#a78bfa]">SaaS Development</span>{" "}
           Services
         </h2>
-        <p className="text-[0.9rem] text-[#8a8680] leading-[1.75] max-w-[580px] mb-12">
+        <p className="text-[0.9rem] text-[#8a8680] leading-[1.75] max-w-[580px] mb-5">
           Every SaaS product we build starts with a question most agencies skip: what does this need to handle in two years, not just today? The answer shapes every architectural decision.
+        </p>
+        <p className="text-[0.9rem] text-[#8a8680] leading-[1.75] max-w-[580px] mb-12">
+          Not sure whether your product needs a monolith, modular monolith, or microservices?{" "}
+          <Link
+            href="/blogs/microservices-vs-monolith"
+            className="text-[#a78bfa] underline underline-offset-2 hover:text-[#c4b5fd] transition-colors duration-200"
+          >
+            Read our honest architecture decision guide for founders and CTOs →
+          </Link>
         </p>
 
         <div className="grid grid-cols-3 gap-5 max-[900px]:grid-cols-2 max-[560px]:grid-cols-1">
