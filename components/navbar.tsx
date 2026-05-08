@@ -102,8 +102,21 @@ export default function Navbar({ showAnnouncementBar = true }: { showAnnouncemen
   const [servicesOpen, setServicesOpen] = useState(false);
   const [industriesOpen, setIndustriesOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [barHeight, setBarHeight] = useState(0);
 
   useEffect(() => { setMounted(true); }, []);
+
+  // Track announcement bar height dynamically
+  useEffect(() => {
+    if (!mounted) return;
+    const bar = document.querySelector("[data-urgency-bar]") as HTMLElement | null;
+    if (!bar) { setBarHeight(0); return; }
+    const measure = () => setBarHeight(bar.offsetHeight);
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(bar);
+    return () => ro.disconnect();
+  }, [mounted, showAnnouncementBar]);
 
   // Prevent body scroll when mobile menu is open (including iOS)
   useEffect(() => {
@@ -329,7 +342,8 @@ export default function Navbar({ showAnnouncementBar = true }: { showAnnouncemen
 
         {/* Panel */}
         <div
-          className={`fixed top-0 ${isRTL ? "left-0" : "right-0"} z-[151] h-full w-[80vw] max-w-[320px] bg-[rgba(12,12,12,0.98)] backdrop-blur-[30px] border-l border-[rgba(255,255,255,0.08)] shadow-[-10px_0_40px_rgba(0,0,0,0.5)] transition-transform duration-[400ms] ease-[cubic-bezier(0.4,0,0.2,1)] sm:hidden ${mobileOpen ? "translate-x-0" : (isRTL ? "-translate-x-full" : "translate-x-full")}`}
+          className={`fixed ${isRTL ? "left-0" : "right-0"} z-[151] w-[80vw] max-w-[320px] bg-[rgba(12,12,12,0.98)] backdrop-blur-[30px] border-l border-[rgba(255,255,255,0.08)] shadow-[-10px_0_40px_rgba(0,0,0,0.5)] transition-transform duration-[400ms] ease-[cubic-bezier(0.4,0,0.2,1)] sm:hidden ${mobileOpen ? "translate-x-0" : (isRTL ? "-translate-x-full" : "translate-x-full")}`}
+          style={{ top: barHeight, bottom: 0 }}
           dir={isRTL ? "rtl" : "ltr"}
         >
           {/* Purple accent line at top */}
