@@ -11,7 +11,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative min-h-screen flex flex-col justify-center overflow-hidden"
+      className="relative z-0 min-h-screen flex flex-col justify-center overflow-hidden"
       dir={isRTL ? "rtl" : "ltr"}
     >
       {/* GIF Background — fullscreen, looping */}
