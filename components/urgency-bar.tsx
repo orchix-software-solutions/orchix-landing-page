@@ -12,7 +12,7 @@ export default function UrgencyBar({ onDismiss }: UrgencyBarProps) {
   return (
     <div
       dir={isRTL ? "rtl" : "ltr"}
-      className="fixed top-0 left-0 w-full z-[200] bg-accent flex items-center justify-center gap-3 px-4 py-[0.55rem] text-[0.8rem] font-semibold tracking-[0.02em] text-white animate-fade-in-down group max-sm:text-[0.65rem] max-sm:gap-1.5 max-sm:py-1.5 max-sm:px-3 max-[400px]:text-[0.6rem]"
+      className="fixed top-0 left-0 w-full z-[200] bg-accent flex items-center justify-center gap-3 px-10 py-[0.55rem] text-[0.8rem] font-semibold tracking-[0.02em] text-white animate-fade-in-down group max-sm:text-[0.65rem] max-sm:gap-1.5 max-sm:py-1.5 max-sm:px-8 max-[400px]:text-[0.6rem]"
     >
       <span className={`relative z-[1] ${isRTL ? "font-cairo" : ""}`}>
         {t.announcement.text}
