@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { blogPosts, getPostBySlug, formatDate } from "@/lib/blog-data";
+import { blogPosts, getPostBySlug, formatDate, slugify } from "@/lib/blog-data";
 import LikeButton from "./like-button";
+import ChapterNav from "./chapter-nav";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -49,76 +50,94 @@ export default async function BlogDetailPage({ params }: Props) {
 
   const relatedPosts = blogPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
 
+  const chapters = post.content
+    .filter((block) => block.type === "heading")
+    .map((block) => {
+      const text = (block as { type: "heading"; text: string }).text;
+      return { text, id: slugify(text) };
+    });
+
   return (
     <main className="flex-1 bg-[#0a0a0a]">
-        {/* Blog header */}
-        <section className="pt-[12rem] pb-10 px-[3rem] max-[1100px]:px-6 max-[600px]:px-4 max-[600px]:pt-[9rem]">
-          <div className="max-w-[1200px] mx-auto">
-            {/* Back link */}
-            <Link
-              href="/blogs"
-              className="inline-flex items-center gap-2 text-[0.75rem] text-[#a78bfa] font-semibold tracking-[0.05em] uppercase mb-6 no-underline hover:text-[#c4b5fd] transition-colors duration-200"
+      {/* Blog header */}
+      <section className="pt-[12rem] pb-10 px-[3rem] max-[1100px]:px-6 max-[600px]:px-4 max-[600px]:pt-[9rem]">
+        <div className="max-w-[1200px] mx-auto">
+          {/* Back link */}
+          <Link
+            href="/blogs"
+            className="inline-flex items-center gap-2 text-[0.75rem] text-[#a78bfa] font-semibold tracking-[0.05em] uppercase mb-6 no-underline hover:text-[#c4b5fd] transition-colors duration-200"
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
             >
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-              >
-                <path d="M19 12H5M12 19l-7-7 7-7" />
-              </svg>
-              Back to Blogs
-            </Link>
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+            Back to Blogs
+          </Link>
 
-            {/* Title */}
-            <h1
-              className="font-syne font-extrabold tracking-[-0.03em] leading-[1.15] text-[#f5f2eb] mb-6"
-              style={{ fontSize: "clamp(1.8rem, 4vw, 2.8rem)" }}
-            >
-              {post.title}
-            </h1>
+          {/* Title */}
+          <h1
+            className="font-syne font-extrabold tracking-[-0.03em] leading-[1.15] text-[#f5f2eb] mb-6"
+            style={{ fontSize: "clamp(1.8rem, 4vw, 2.8rem)" }}
+          >
+            {post.title}
+          </h1>
 
-            {/* Author row */}
-            <div className="flex items-center gap-3 mb-10">
-              <div className="relative w-11 h-11 rounded-full overflow-hidden border-2 border-[rgba(124,91,245,0.4)] shadow-[0_0_15px_rgba(124,91,245,0.2)]">
-                <Image
-                  src={post.author.avatar}
-                  alt={post.author.name}
-                  fill
-                  className="object-cover object-top"
-                  sizes="44px"
-                />
-              </div>
-              <div>
-                <p className="text-[0.85rem] font-semibold text-[#f5f2eb]">
-                  {post.author.name}
-                </p>
-                <p className="text-[0.7rem] text-[#8a8680]">
-                  {post.author.role} &middot; {formatDate(post.date)}{" "}
-                  &middot; {post.readTime}
-                </p>
-              </div>
-            </div>
-
-            {/* Hero image */}
-            <div className="relative aspect-[16/9] rounded-2xl overflow-hidden border border-[rgba(255,255,255,0.06)]">
+          {/* Author row */}
+          <div className="flex items-center gap-3 mb-10">
+            <div className="relative w-11 h-11 rounded-full overflow-hidden border-2 border-[rgba(124,91,245,0.4)] shadow-[0_0_15px_rgba(124,91,245,0.2)] bg-[#0d0d0d] flex items-center justify-center">
               <Image
-                src={post.coverImage}
-                alt={post.title}
+                src={post.author.avatar}
+                alt={post.author.name}
                 fill
-                className="object-cover"
-                sizes="800px"
-                priority
+                className={post.author.avatar === "/logo.png" ? "object-contain p-1" : "object-cover object-top"}
+                sizes="44px"
               />
             </div>
+            <div>
+              <p className="text-[0.85rem] font-semibold text-[#f5f2eb]">
+                {post.author.name}
+              </p>
+              <p className="text-[0.7rem] text-[#8a8680]">
+                {post.author.role} &middot; {formatDate(post.date)}{" "}
+                &middot; {post.readTime}
+              </p>
+            </div>
           </div>
-        </section>
 
-        {/* Article body */}
-        <article className="max-w-[1200px] mx-auto px-[3rem] pt-10 pb-16 max-[1100px]:px-6 max-[600px]:px-4 max-[600px]:pt-8 max-[600px]:pb-10">
+          {/* Hero image */}
+          <div className="relative aspect-[16/9] rounded-2xl overflow-hidden border border-[rgba(255,255,255,0.06)]">
+            <Image
+              src={post.coverImage}
+              alt={post.title}
+              fill
+              className="object-cover"
+              sizes="800px"
+              priority
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Article body + chapter sidebar */}
+      <div className="max-w-[1200px] mx-auto px-[3rem] pt-10 pb-16 flex gap-10 items-start max-[1100px]:px-6 max-[900px]:gap-0 max-[600px]:px-4 max-[600px]:pt-8 max-[600px]:pb-10">
+        {/* Left sidebar: sticky chapter navigation */}
+        {chapters.length > 0 && (
+          <aside className="w-[260px] shrink-0 self-start sticky top-[5.5rem] max-[900px]:hidden">
+            <div className="rounded-xl border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] py-5 px-1">
+              <ChapterNav chapters={chapters} />
+            </div>
+          </aside>
+        )}
+
+        {/* Main article content */}
+        <article className="flex-1 min-w-0">
           <div className="space-y-8">
             {post.content.map((block, i) => {
               switch (block.type) {
@@ -152,7 +171,8 @@ export default async function BlogDetailPage({ params }: Props) {
                   return (
                     <h2
                       key={i}
-                      className="font-syne font-bold text-[1.4rem] leading-[1.3] tracking-[-0.02em] text-[#f5f2eb] pt-4"
+                      id={slugify(block.text)}
+                      className="font-syne font-bold text-[1.4rem] leading-[1.3] tracking-[-0.02em] text-[#f5f2eb] pt-4 scroll-mt-[6rem]"
                     >
                       {block.text}
                     </h2>
@@ -185,6 +205,38 @@ export default async function BlogDetailPage({ params }: Props) {
                           {block.caption}
                         </figcaption>
                       )}
+                    </figure>
+                  );
+
+                case "image-placeholder":
+                  return (
+                    <figure key={i} className="my-10">
+                      <div className="relative aspect-[16/9] rounded-2xl overflow-hidden border border-dashed border-[rgba(124,91,245,0.25)] bg-[rgba(124,91,245,0.03)] flex flex-col items-center justify-center gap-3">
+                        <svg
+                          width="36"
+                          height="36"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="rgba(124,91,245,0.3)"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          aria-hidden="true"
+                        >
+                          <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                          <circle cx="8.5" cy="8.5" r="1.5" />
+                          <polyline points="21 15 16 10 5 21" />
+                        </svg>
+                        <p className="text-[0.78rem] font-semibold text-[#a78bfa]">
+                          Infographic {block.infographicNumber}
+                        </p>
+                        <p className="text-[0.72rem] text-[#6b6760] text-center max-w-[300px] leading-[1.6]">
+                          {block.title}
+                        </p>
+                        <span className="text-[0.62rem] uppercase tracking-[0.12em] text-[#4a4845]">
+                          Image coming soon
+                        </span>
+                      </div>
                     </figure>
                   );
 
@@ -292,43 +344,44 @@ export default async function BlogDetailPage({ params }: Props) {
             <LikeButton slug={post.slug} />
           </div>
         </article>
+      </div>
 
-        {/* Related posts */}
-        {relatedPosts.length > 0 && (
-          <section className="max-w-[1200px] mx-auto px-[3rem] pb-20 max-[1100px]:px-6 max-[600px]:px-4">
-            <h3 className="font-syne font-bold text-[1.2rem] text-[#f5f2eb] mb-8">
-              More from the blog
-            </h3>
-            <div className="grid grid-cols-3 gap-6 max-[900px]:grid-cols-2 max-[600px]:grid-cols-1">
-              {relatedPosts.map((related) => (
-                <Link
-                  key={related.slug}
-                  href={`/blogs/${related.slug}`}
-                  className="group/card relative flex flex-col rounded-[18px] overflow-hidden border border-[rgba(255,255,255,0.07)] bg-[rgba(14,14,14,0.9)] no-underline transition-all duration-500 hover:border-[rgba(124,91,245,0.25)] hover:-translate-y-1"
-                >
-                  <div className="relative aspect-[16/10] overflow-hidden">
-                    <Image
-                      src={related.coverImage}
-                      alt={related.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover/card:scale-105"
-                      sizes="(max-width: 600px) 100vw, 400px"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[rgba(14,14,14,0.5)] to-transparent" />
-                  </div>
-                  <div className="p-5">
-                    <h4 className="font-syne font-bold text-[0.92rem] leading-[1.3] text-[#f5f2eb] mb-2 line-clamp-2">
-                      {related.title}
-                    </h4>
-                    <p className="text-[0.72rem] text-[#8a8680]">
-                      {formatDate(related.date)} &middot; {related.readTime}
-                    </p>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </section>
-        )}
+      {/* Related posts */}
+      {relatedPosts.length > 0 && (
+        <section className="max-w-[1200px] mx-auto px-[3rem] pb-20 max-[1100px]:px-6 max-[600px]:px-4">
+          <h3 className="font-syne font-bold text-[1.2rem] text-[#f5f2eb] mb-8">
+            More from the blog
+          </h3>
+          <div className="grid grid-cols-3 gap-6 max-[900px]:grid-cols-2 max-[600px]:grid-cols-1">
+            {relatedPosts.map((related) => (
+              <Link
+                key={related.slug}
+                href={`/blogs/${related.slug}`}
+                className="group/card relative flex flex-col rounded-[18px] overflow-hidden border border-[rgba(255,255,255,0.07)] bg-[rgba(14,14,14,0.9)] no-underline transition-all duration-500 hover:border-[rgba(124,91,245,0.25)] hover:-translate-y-1"
+              >
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <Image
+                    src={related.coverImage}
+                    alt={related.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover/card:scale-105"
+                    sizes="(max-width: 600px) 100vw, 400px"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[rgba(14,14,14,0.5)] to-transparent" />
+                </div>
+                <div className="p-5">
+                  <h4 className="font-syne font-bold text-[0.92rem] leading-[1.3] text-[#f5f2eb] mb-2 line-clamp-2">
+                    {related.title}
+                  </h4>
+                  <p className="text-[0.72rem] text-[#8a8680]">
+                    {formatDate(related.date)} &middot; {related.readTime}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
     </main>
   );
 }

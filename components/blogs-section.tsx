@@ -107,12 +107,12 @@ export default function BlogsSection() {
                 {/* Footer row */}
                 <div className="flex items-center justify-between pt-4 border-t border-[rgba(255,255,255,0.05)]">
                   <div className="flex items-center gap-2">
-                    <div className="relative w-6 h-6 rounded-full overflow-hidden border border-[rgba(124,91,245,0.3)] shrink-0">
+                    <div className="relative w-6 h-6 rounded-full overflow-hidden border border-[rgba(124,91,245,0.3)] shrink-0 bg-[#0d0d0d]">
                       <Image
                         src={post.author.avatar}
                         alt={post.author.name}
                         fill
-                        className="object-cover object-top"
+                        className={post.author.avatar === "/logo.png" ? "object-contain p-0.5" : "object-cover object-top"}
                         sizes="24px"
                       />
                     </div>

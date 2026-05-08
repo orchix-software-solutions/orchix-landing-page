@@ -21,9 +21,19 @@ export type BlogBlock =
   | { type: "heading"; text: string }
   | { type: "subheading"; text: string }
   | { type: "image"; src: string; alt: string; caption?: string }
+  | { type: "image-placeholder"; title: string; infographicNumber: number }
   | { type: "quote"; text: string; cite?: string }
   | { type: "list"; items: string[] }
   | { type: "table"; caption?: string; headers: string[]; rows: string[][] };
+
+export function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
+}
 
 export const blogPosts: BlogPost[] = [
   {
@@ -552,6 +562,388 @@ export const blogPosts: BlogPost[] = [
         type: "quote",
         text: "I should have done this a year earlier.",
         cite: "Common sentiment from founders who made the switch",
+      },
+    ],
+  },
+  {
+    slug: "microservices-vs-monolith",
+    title: "Microservices vs Monolith in 2026: How to Actually Decide (Not Just Follow What Netflix Did)",
+    excerpt:
+      "89% of organisations adopted microservices — then 42% started consolidating them back. Here's how to actually choose the right architecture for your stage, team size, and workload in 2026.",
+    coverImage: "/blog-microservices-vs-monolith.png",
+    date: "2026-05-09",
+    readTime: "10 min read",
+    metaDescription:
+      "89% of organisations adopted microservices — then 42% started consolidating them back. Here's how to actually choose the right architecture for your stage, team size, and workload in 2026.",
+    author: {
+      name: "OrchiX Engineering Team",
+      role: "Software Architecture",
+      avatar: "/logo.png",
+    },
+    tags: ["Software Architecture", "Engineering", "Infrastructure"],
+    content: [
+      {
+        type: "paragraph",
+        text: "Engineering teams at early-stage startups choose microservices because Netflix uses them. They spend their first two years fighting distributed systems complexity instead of building product. Later-stage companies discover their monolith is perfectly adequate — after everyone assumed it needed to be decomposed.",
+      },
+      {
+        type: "paragraph",
+        text: "This has been the pattern for a decade. And in 2026, enough public postmortems exist to make the honest answer clearer than it's ever been.",
+      },
+      {
+        type: "paragraph",
+        text: "The short version: microservices are not better than monoliths. Monoliths are not legacy. The right architecture depends on three things — your team size, your traffic patterns, and your business stage — and most teams get at least one of those wrong when they make the decision.",
+      },
+      {
+        type: "heading",
+        text: "What the Data Actually Says in 2026",
+      },
+      {
+        type: "paragraph",
+        text: "Before the technical breakdown, the numbers that should reframe this conversation.",
+      },
+      {
+        type: "paragraph",
+        text: "89% of organisations have adopted microservices architecture. That stat sounds like the debate is settled. It isn't — because of what happened next.",
+      },
+      {
+        type: "paragraph",
+        text: "According to a 2025 CNCF survey, 42% of organisations that initially adopted microservices have consolidated at least some services back into larger deployable units. The primary reasons cited: debugging complexity, operational overhead, and network latency issues that hurt user experience.",
+      },
+      {
+        type: "paragraph",
+        text: "The most famous example is Amazon Prime Video, which publicly moved specific workloads back to a monolithic approach and reported 90% cost reduction and improved performance. That's not an argument against microservices — it's an argument against choosing an architecture before understanding what it actually costs to operate.",
+      },
+      {
+        type: "paragraph",
+        text: "And the costs are real. A modular monolith typically requires 1–2 operations-focused engineers. An equivalent microservices architecture typically requires 2–4 platform engineers. At 2025 salary rates for platform engineers — $140,000–$180,000 annually — that's $140,000–$360,000 in additional annual salary costs before you've written a single line of business logic.",
+      },
+      {
+        type: "paragraph",
+        text: "The right architecture isn't the most modern one. It's the one that matches where you are.",
+      },
+      {
+        type: "image",
+        src: "/microservices-adoption-statistics-2026-infographic.png",
+        alt: "Microservices adoption statistics 2026: 89% of organisations adopted microservices, 42% consolidated services back, $140K–$360K extra annual cost for platform engineers, 90% cost reduction when Amazon Prime Video moved specific workloads back to a monolith — sources: CNCF 2025, DevOps Salary Report 2025, Amazon Prime Video Engineering Blog",
+        caption: "Microservices in 2026: What the Data Actually Shows — Sources: CNCF 2025, DevOps Salary Report 2025, Amazon Prime Video Engineering Blog",
+      },
+      {
+        type: "heading",
+        text: "What Is a Monolith (and Why the Word Has an Unfair Reputation)",
+      },
+      {
+        type: "paragraph",
+        text: "A monolithic application is a single unified codebase where all components — authentication, business logic, database access, notifications, payments — live together and deploy as one unit.",
+      },
+      {
+        type: "paragraph",
+        text: "The word \"monolith\" has acquired a negative connotation it doesn't deserve. A well-structured monolith with clean internal module boundaries, thoughtful data modelling, and proper test coverage is not a legacy system. It's a simple, fast, debuggable application that a small team can understand end to end.",
+      },
+      {
+        type: "paragraph",
+        text: "The problems people associate with monoliths — slow deployments, fragility, inability to scale — are problems of poorly designed monoliths, not monoliths as an architectural pattern.",
+      },
+      {
+        type: "subheading",
+        text: "What a monolith does well",
+      },
+      {
+        type: "list",
+        items: [
+          "Simple to develop, debug, and deploy — one codebase, one deployment pipeline, one set of logs",
+          "Fast internal function calls — no network hops between components",
+          "Easy to test end-to-end — the entire application is available in a single test environment",
+          "Low operational overhead — one database, one application server, one monitoring setup",
+          "Fast to onboard new engineers — they can run the entire system locally",
+        ],
+      },
+      {
+        type: "subheading",
+        text: "Where a monolith struggles",
+      },
+      {
+        type: "list",
+        items: [
+          "Scaling specific components independently becomes impossible — if your image processing is under load, you have to scale the whole application",
+          "Large teams working in a single codebase create merge conflicts and coordination overhead",
+          "A bug in one component can bring down the entire application",
+          "Technology lock-in — the whole application uses the same language and framework",
+        ],
+      },
+      {
+        type: "heading",
+        text: "What Are Microservices (and What They Actually Cost)",
+      },
+      {
+        type: "paragraph",
+        text: "Microservices architecture decomposes an application into a collection of small, independently deployable services — each handling a specific business function, each running in its own process, each communicating over the network via APIs.",
+      },
+      {
+        type: "paragraph",
+        text: "The user service knows about users. The payment service handles payments. The notification service sends emails. They don't share a database. They don't share memory. They talk to each other over HTTP or a message queue.",
+      },
+      {
+        type: "paragraph",
+        text: "The benefits are real. Independent deployability means your payment team can ship without waiting for the notification team. Technology diversity means the team that needs low latency can use Go while the team doing ML can use Python. Fault isolation means a bug in the notification service doesn't crash payments.",
+      },
+      {
+        type: "paragraph",
+        text: "The costs are also real — and they're what most architecture decisions underestimate.",
+      },
+      {
+        type: "subheading",
+        text: "What microservices do well",
+      },
+      {
+        type: "list",
+        items: [
+          "Scale individual components independently — scale the payment service without scaling the whole application",
+          "Independent deployment — teams can ship without coordinating releases",
+          "Technology flexibility — different services can use different languages and frameworks",
+          "Fault isolation — a failing service doesn't necessarily bring down the entire system",
+          "Team autonomy — teams can own their services end to end",
+        ],
+      },
+      {
+        type: "subheading",
+        text: "What microservices actually cost",
+      },
+      {
+        type: "list",
+        items: [
+          "Network complexity — every function call that used to be in-memory is now a network request that can fail, timeout, or return stale data",
+          "Distributed tracing — debugging a request that touches 8 services requires tooling (Jaeger, Zipkin, Datadog) that doesn't come free",
+          "Operational overhead — each service needs its own CI/CD pipeline, health checks, alerting, and on-call rotation",
+          "Data consistency — transactions across services are hard. Distributed transactions are really hard. Most teams get this wrong.",
+          "Infrastructure costs — more services means more containers, more load balancers, more databases, more everything",
+        ],
+      },
+      {
+        type: "image",
+        src: "/monolith-vs-microservices-trade-offs-comparison-infographic.png",
+        alt: "Monolith vs microservices real trade-offs comparison: deployment (simple vs flexible), debugging (single log stream vs distributed tracing), scaling (whole app vs individual services), team size (under 15 vs over 50 engineers), infrastructure cost (low vs $140K–$360K/year), time to first feature (fast vs slower setup overhead)",
+        caption: "Monolith vs Microservices: The Real Trade-offs across deployment, debugging, scaling, team size, cost, and time to ship",
+      },
+      {
+        type: "heading",
+        text: "The Modular Monolith: The Option Most Teams Skip",
+      },
+      {
+        type: "paragraph",
+        text: "There's a third option most architecture discussions ignore: the modular monolith.",
+      },
+      {
+        type: "paragraph",
+        text: "A modular monolith is a single deployable unit that is internally structured as clearly separated modules — each with its own domain logic, its own data access layer, and defined interfaces for communicating with other modules. It deploys as one application, but it's architected as if it could be split into services if needed.",
+      },
+      {
+        type: "paragraph",
+        text: "This gives you:",
+      },
+      {
+        type: "list",
+        items: [
+          "The operational simplicity of a monolith (one deployment, one database, one set of logs)",
+          "The code organisation of microservices (clean boundaries, separated domain logic)",
+          "A migration path to microservices if and when your scale genuinely demands it",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Major frameworks now support this natively. Rails engines, Django apps, Laravel modules, and NestJS modules all provide patterns for building modular monoliths without custom architecture work. This is why the modular monolith has become the recommended starting point for most new products in 2026.",
+      },
+      {
+        type: "paragraph",
+        text: "You get the benefits of clean architecture without paying the distributed systems tax until you actually need to.",
+      },
+      {
+        type: "heading",
+        text: "The Decision Framework: Which One Is Right for You",
+      },
+      {
+        type: "paragraph",
+        text: "Stop thinking about which architecture is better. Think about which one matches your current situation.",
+      },
+      {
+        type: "subheading",
+        text: "Team size is the strongest predictor",
+      },
+      {
+        type: "paragraph",
+        text: "Microservices benefits only appear reliably with teams larger than 10–15 developers. Below this threshold, monoliths consistently perform better on every metric — shipping speed, debugging time, onboarding time, infrastructure cost. The coordination overhead of maintaining distributed services consumes exactly the productivity that microservices are supposed to enable.",
+      },
+      {
+        type: "subheading",
+        text: "Traffic patterns matter more than expected traffic",
+      },
+      {
+        type: "paragraph",
+        text: "The question isn't \"will we ever have high traffic?\" It's \"do different parts of our application have meaningfully different traffic profiles right now?\" If your checkout flow handles 10x the traffic of your settings page, microservices let you scale them independently. If your entire application gets broadly similar traffic, scaling a monolith horizontally is simpler and cheaper.",
+      },
+      {
+        type: "subheading",
+        text: "Your operational maturity determines what you can sustain",
+      },
+      {
+        type: "paragraph",
+        text: "Microservices require DevOps capability — CI/CD pipelines per service, distributed tracing, service mesh or API gateway, incident management across multiple deployment units. If you don't have platform engineers who do this work, microservices will create more problems than they solve.",
+      },
+      {
+        type: "image",
+        src: "/which-software-architecture-is-right-decision-flowchart.png",
+        alt: "Decision flowchart: which software architecture is right for your stage? Under 15 engineers: start with a monolith or modular monolith. 15–50 engineers with different scaling needs: consider selective microservices decomposition. 15–50 engineers with uniform scaling: modular monolith. 50+ engineers: microservices likely justified",
+        caption: "Which Architecture Is Right for Your Stage? — A decision flowchart based on team size and scaling needs",
+      },
+      {
+        type: "heading",
+        text: "The Honest Matrix: Choose Based on Your Actual Situation",
+      },
+      {
+        type: "table",
+        caption: "Architecture Decision Matrix",
+        headers: ["Your Situation", "Recommended Architecture"],
+        rows: [
+          ["MVP or early product, team under 10", "Monolith"],
+          ["Growing product, 10–30 engineers, scaling one area", "Modular monolith"],
+          ["Separate teams owning separate domains, 30+ engineers", "Microservices"],
+          ["High-traffic platform with clearly different scaling needs per component", "Microservices"],
+          ["Legacy monolith that's painful to work in", "Modular monolith refactor first"],
+          ["New product at a company that already runs microservices infrastructure", "Microservices (infrastructure cost already paid)"],
+          ["Any product, first 6 months", "Monolith — always"],
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "The last row is the one most teams get wrong. Nobody builds their MVP in microservices and ships faster. Nobody. The setup overhead alone — service discovery, inter-service communication patterns, local development environment with 8 running services — costs weeks before you've written any business logic.",
+      },
+      {
+        type: "heading",
+        text: "What Amazon Prime Video Actually Did (And What It Means)",
+      },
+      {
+        type: "paragraph",
+        text: "The Amazon Prime Video case gets cited constantly, often incorrectly.",
+      },
+      {
+        type: "paragraph",
+        text: "The engineering team published a blog post describing how they moved a specific video quality monitoring workflow from a serverless microservices architecture to a monolithic process. The result: 90% cost reduction, significant performance improvement.",
+      },
+      {
+        type: "paragraph",
+        text: "What this doesn't mean: microservices are bad. Amazon still runs thousands of microservices across its broader infrastructure. What it means: a specific workflow that involved high-volume inter-service calls and step functions was cheaper and faster when colocated. The distributed architecture created network overhead and per-invocation costs that made sense at some scale but not at theirs.",
+      },
+      {
+        type: "paragraph",
+        text: "The lesson is context-specific. If you have a workflow that involves many sequential operations on related data, running it as a single process is often more efficient than orchestrating it across multiple services. That's a data flow problem, not an architectural manifesto.",
+      },
+      {
+        type: "image",
+        src: "/monolith-to-microservices-migration-path-roadmap.png",
+        alt: "Smart migration path from monolith to microservices: Stage 1 MVP/Early Stage (1–10 engineers, 0–18 months) single codebase, ship fast; Stage 2 Modular Monolith (10–30 engineers, 18 months–3 years) clean internal boundaries; Stage 3 Selective Decomposition (30–50 engineers, 3–5 years) extract highest-traffic services first; Stage 4 Full Microservices (50+ engineers) independent teams and deployments — 42% consolidate back per CNCF 2025",
+        caption: "The Smart Migration Path: Monolith → Modular Monolith → Microservices — with team size and timeline benchmarks at each stage",
+      },
+      {
+        type: "heading",
+        text: "When You Have a Monolith and It's Causing Problems",
+      },
+      {
+        type: "paragraph",
+        text: "Most teams that ask \"should we move to microservices?\" are actually asking \"our monolith is painful — what do we do?\"",
+      },
+      {
+        type: "paragraph",
+        text: "The answer is almost never \"migrate to microservices immediately.\" It's usually \"fix the monolith first.\"",
+      },
+      {
+        type: "paragraph",
+        text: "A painful monolith is almost always a poorly structured monolith — not evidence that the architectural pattern is wrong. The most common problems:",
+      },
+      {
+        type: "subheading",
+        text: "Deployment is slow and risky",
+      },
+      {
+        type: "paragraph",
+        text: "Usually a CI/CD problem, not an architecture problem. Improving the deployment pipeline (faster test suites, better staging environments, feature flags) is faster and cheaper than decomposing the application.",
+      },
+      {
+        type: "subheading",
+        text: "One part of the system is under load",
+      },
+      {
+        type: "paragraph",
+        text: "Usually a database or query optimisation problem first, a horizontal scaling problem second, and an architecture problem third. Most monoliths can handle more traffic than teams expect when the underlying bottlenecks are addressed.",
+      },
+      {
+        type: "subheading",
+        text: "Teams are stepping on each other's code",
+      },
+      {
+        type: "paragraph",
+        text: "A modular monolith with enforced module boundaries solves this without distributed systems overhead. Extract the problematic domains into modules with clearly defined interfaces.",
+      },
+      {
+        type: "subheading",
+        text: "The codebase is too complex to change safely",
+      },
+      {
+        type: "paragraph",
+        text: "Almost always a test coverage problem. Microservices don't fix this — they distribute the complexity across network boundaries, making it harder to change, not easier.",
+      },
+      {
+        type: "heading",
+        text: "The Case for Microservices (When They're Actually Warranted)",
+      },
+      {
+        type: "paragraph",
+        text: "After all the caveats, microservices are the right answer for a specific set of situations — and they're genuinely the right answer, not a compromise.",
+      },
+      {
+        type: "paragraph",
+        text: "If you have a large engineering organisation (50+ engineers) with teams that have distinct ownership of separate business domains, microservices provide team autonomy that's hard to achieve in any other way. Teams can ship independently, test independently, and scale independently without coordination.",
+      },
+      {
+        type: "paragraph",
+        text: "If specific components of your application have significantly different operational characteristics — your video transcoding service needs GPU instances, your API gateway needs low-latency commodity compute, your ML inference service needs specialised hardware — microservices let you deploy each on the right infrastructure.",
+      },
+      {
+        type: "paragraph",
+        text: "If you're operating at a scale where a single deployment unit creates real operational risk — and this is a genuinely high bar, higher than most companies ever reach — independent deployability becomes a practical necessity, not a theoretical advantage.",
+      },
+      {
+        type: "paragraph",
+        text: "64% of DevOps-oriented companies use microservices for continuous delivery in production. That's real. But DevOps-oriented companies with mature CI/CD pipelines and platform engineering teams are a specific subset of all software companies — not the norm.",
+      },
+      {
+        type: "image",
+        src: "/microservices-vs-monolith-2026-cheat-sheet-infographic.png",
+        alt: "Microservices vs monolith 2026 cheat sheet: choose monolith when team is under 15 engineers, building MVP or v1, limited DevOps capacity, budget constrained, or speed to market is priority; choose modular monolith when team is 10–30 engineers, monolith is getting messy, preparing for decomposition, or mid-stage product with stable traffic; choose microservices when team is 50+ engineers, clearly different scaling needs per domain, separate teams owning services, mature DevOps, or infrastructure costs already paid — warning: never choose microservices because Netflix uses them",
+        caption: "Microservices vs Monolith: The 2026 Cheat Sheet — when to choose each architecture based on team size, stage, and operational maturity",
+      },
+      {
+        type: "heading",
+        text: "The Bottom Line",
+      },
+      {
+        type: "paragraph",
+        text: "The microservices vs monolith decision has a right answer for every situation. It's just not the same answer for every situation.",
+      },
+      {
+        type: "paragraph",
+        text: "Start with a monolith or modular monolith for almost every new product. The setup cost of microservices is real, the operational complexity is real, and the benefits only materialise at a team size and scale that most products never reach in their early stages.",
+      },
+      {
+        type: "paragraph",
+        text: "When you do reach that scale — when teams are blocking each other, when specific services genuinely need different scaling profiles, when you have the platform engineering capacity to operate distributed systems properly — then microservices make sense. Not before.",
+      },
+      {
+        type: "paragraph",
+        text: "The 42% of organisations that consolidated services back weren't wrong to have tried microservices. They were wrong to have tried them before the conditions that justify them were in place.",
+      },
+      {
+        type: "paragraph",
+        text: "If you're not sure which architecture your product needs right now, the answer is almost certainly: start simpler than you think, structure it well, and evolve it when the evidence demands it — not when the blog posts say so.",
       },
     ],
   },
