@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { blogPosts, getPostBySlug, formatDate, slugify } from "@/lib/blog-data";
 import LikeButton from "./like-button";
 import ChapterNav from "./chapter-nav";
+import JsonLd from "@/components/json-ld";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -57,8 +58,62 @@ export default async function BlogDetailPage({ params }: Props) {
       return { text, id: slugify(text) };
     });
 
+  const base = "https://orchixsoftwaresolutions.com";
+  const coverImageUrl = post.coverImage.startsWith("http")
+    ? post.coverImage
+    : `${base}${post.coverImage}`;
+
+  const blogPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${base}/blogs/${post.slug}#article`,
+    headline: post.title,
+    description: post.metaDescription,
+    image: {
+      "@type": "ImageObject",
+      url: coverImageUrl,
+      width: 1200,
+      height: 675,
+    },
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      "@type": post.author.name === "OrchiX Engineering Team" ? "Organization" : "Person",
+      name: post.author.name,
+      url: base,
+    },
+    publisher: {
+      "@type": "Organization",
+      "@id": `${base}/#organization`,
+      name: "OrchiX Software Solutions",
+      logo: {
+        "@type": "ImageObject",
+        url: `${base}/logo.png`,
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${base}/blogs/${post.slug}`,
+    },
+    url: `${base}/blogs/${post.slug}`,
+    keywords: post.tags.join(", "),
+    articleSection: post.tags[0] ?? "Software Engineering",
+    inLanguage: "en-US",
+    isPartOf: {
+      "@type": "Blog",
+      "@id": `${base}/blogs#blog`,
+      name: "OrchiX Blog",
+      publisher: {
+        "@type": "Organization",
+        "@id": `${base}/#organization`,
+      },
+    },
+  };
+
   return (
-    <main className="flex-1 bg-[#0a0a0a]">
+    <>
+      <JsonLd schema={blogPostingSchema as Record<string, unknown>} />
+      <main className="flex-1 bg-[#0a0a0a]">
       {/* Blog header */}
       <section className="pt-[12rem] pb-10 px-[3rem] max-[1100px]:px-6 max-[600px]:px-4 max-[600px]:pt-[9rem]">
         <div className="max-w-[1200px] mx-auto">
@@ -383,5 +438,6 @@ export default async function BlogDetailPage({ params }: Props) {
         </section>
       )}
     </main>
+    </>
   );
 }
