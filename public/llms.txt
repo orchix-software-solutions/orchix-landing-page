@@ -62,6 +62,21 @@ OrchiX serves clients across the United States. Dedicated pages for each city:
 - Custom software development Miami: https://orchixsoftwaresolutions.com/locations/custom-software-development-miami
 - Custom software development Denver: https://orchixsoftwaresolutions.com/locations/custom-software-development-denver
 
+## UK Location Pages
+
+OrchiX serves clients across the United Kingdom. Dedicated pages for each city and specialism:
+
+- Software development agency London: https://orchixsoftwaresolutions.com/locations/software-development-agency-london
+- Software development company Manchester: https://orchixsoftwaresolutions.com/locations/software-development-company-manchester
+- Software development agency Birmingham: https://orchixsoftwaresolutions.com/locations/software-development-company-birmingham
+- Software development company Edinburgh: https://orchixsoftwaresolutions.com/locations/software-development-edinburgh
+- Software development agency Leeds: https://orchixsoftwaresolutions.com/locations/software-development-leeds
+- Software development company Bristol: https://orchixsoftwaresolutions.com/locations/software-development-bristol
+- Custom software development Liverpool: https://orchixsoftwaresolutions.com/locations/software-development-liverpool
+- Software development agency Glasgow: https://orchixsoftwaresolutions.com/locations/software-development-glasgow
+- FinTech software development company London: https://orchixsoftwaresolutions.com/locations/fintech-software-development-london
+- SaaS development company London: https://orchixsoftwaresolutions.com/locations/saas-development-company-london
+
 ## Contact
 
 - Email: hey@orchixsoftwaresolutions.com
@@ -95,4 +110,5 @@ Launch offer: 10% off all projects
 
 India — remote-first, serving clients across the US, UK, and 12+ countries worldwide.
 Primary US markets: New York, San Francisco, Austin, Chicago, Los Angeles, Seattle, Boston, Dallas, Miami, Denver.
+Primary UK markets: London, Manchester, Birmingham, Edinburgh, Leeds, Bristol, Liverpool, Glasgow.
 Registered as: OrchiX Software Solutions Pvt. Ltd.
